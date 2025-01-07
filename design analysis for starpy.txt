@@ -1,0 +1,27 @@
+requirements of graphics India website 
+
+1.Home page
+- text on hero section from strappy
+-buttons and icons static
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Important point from strappy docs :
+
+1. The new Content History feature allows you to view and restore previous versions of your content from the Content Manager.
