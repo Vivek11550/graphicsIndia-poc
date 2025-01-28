@@ -7,7 +7,13 @@ const Header = () => {
   return (
     <header className="bg-gray-700 text-white">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
-        <h1 className="text-lg font-bold">INDIA GRAPHIC ONLINE</h1>
+         <h1 className="text-lg font-bold">INDIA GRAPHIC ONLINE</h1> 
+        {/* <h1
+           className="text-lg font-bold"
+            style={{ fontFamily: "Sigmar One, cursive" }}
+             >   
+        INDIA GRAPHIC ONLINE
+           </h1> */}
         <nav>
           <ul className="flex space-x-6 items-center">
             <li>
