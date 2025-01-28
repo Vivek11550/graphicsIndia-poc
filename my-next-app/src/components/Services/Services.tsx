@@ -201,9 +201,9 @@ export default function ServiceComponent() {
            <div className=" p-8 rounded-lg mt-16 grid grid-cols-1 md:grid-cols-2"> 
           
             {/* Map Image */}
-            <div className="mt-16 ">
+            <div className="mt-6">
               <h2
-                className="text-2xl font-bold text-black mb-6 text-center"
+                className="text-2xl font-bold text-black mb-6 text-center "
                 style={{ fontFamily: "PT Serif, serif" }}
               >
                 Get in Touch with Us
