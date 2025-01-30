@@ -1,86 +1,51 @@
 import React from "react";
 import Link from "next/link";
+import logo from "../../Assets/logo.png";
+import Image from "next/image";
 import { FaFacebookF, FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
 
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-700 text-white pt-10 pb-4">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8 px-6">
+    <footer className="bg-gray-700 text-white py-8">
+      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-8">
     
-        <div className="flex flex-col items-center md:items-start">
-          <div className="text-2xl font-bold"> India Graphic Online</div>
-          <div className="text-sm text-white/[0.5] mt-2">
-            © 2023 Graphics India Online. All rights reserved.
-          </div>
+        <div className="flex  items-center space-x-4 mb-6 md:mb-0">
+        <Image src={logo} alt="India Graphic Online Logo" width={50} height={50} />
+          <h2 className="text-xl font-bold">India Graphic Online</h2>
         </div>
-
-    
-        <div className="flex flex-col items-center md:items-start">
-          <div className="text-lg font-semibold mb-3">Quick Links</div>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <Link href="/" className="hover:text-gray-400">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="hover:text-gray-400">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/services" className="hover:text-gray-400">
-                Services
-              </Link>
-            </li>
-            <li>
-              <Link href="/portfolio" className="hover:text-gray-400">
-                Portfolio
-              </Link>
-            </li>
-            <li>
-              <Link href="/contact-us" className="hover:text-gray-400">
-                Contact Us
-              </Link>
-            </li>
-          </ul>
-        </div>
+           
+        <nav className="flex flex-wrap justify-center space-x-6 md:space-x-8 mb-6 md:mb-0">
+          <Link href="/" className="hover:text-gray-400 px-2 py-1">Home</Link>
+          <Link href="/about" className="hover:text-gray-400 px-2 py-1">About</Link>
+          <Link href="/services" className="hover:text-gray-400 px-2 py-1">Services</Link>
+          <Link href="/portfolio" className="hover:text-gray-400 px-2 py-1">Portfolio</Link>
+          <Link href="/contact-us" className="hover:text-gray-400 px-2 py-1">Contact Us</Link>
+        </nav>
 
         
         <div className="flex space-x-4">
-          <Link
-            href="https://facebook.com"
-            target="_blank"
-            className="w-10 h-10 rounded-full bg-white/[0.25] flex items-center justify-center text-white hover:bg-white/[0.5]"
-          >
+          <Link href="https://facebook.com" target="_blank" className="p-2 rounded-full bg-white/[0.2] hover:bg-white/[0.4] transition">
             <FaFacebookF size={20} />
           </Link>
-          <Link
-            href="https://twitter.com"
-            target="_blank"
-            className="w-10 h-10 rounded-full bg-white/[0.25] flex items-center justify-center text-white hover:bg-white/[0.5]"
-          >
+          <Link href="https://twitter.com" target="_blank" className="p-2 rounded-full bg-white/[0.2] hover:bg-white/[0.4] transition">
             <FaTwitter size={20} />
           </Link>
-          <Link
-            href="https://youtube.com"
-            target="_blank"
-            className="w-10 h-10 rounded-full bg-white/[0.25] flex items-center justify-center text-white hover:bg-white/[0.5]"
-          >
+          <Link href="https://youtube.com" target="_blank" className="p-2 rounded-full bg-white/[0.2] hover:bg-white/[0.4] transition">
             <FaYoutube size={20} />
           </Link>
-          <Link
-            href="https://instagram.com"
-            target="_blank"
-            className="w-10 h-10 rounded-full bg-white/[0.25] flex items-center justify-center text-white hover:bg-white/[0.5]"
-          >
+          <Link href="https://instagram.com" target="_blank" className="p-2 rounded-full bg-white/[0.2] hover:bg-white/[0.4] transition">
             <FaInstagram size={20} />
           </Link>
         </div>
+
       </div>
+
+      
+      <p className="text-center text-sm text-gray-400 mt-6">© 2024 India Graphic Online. All rights reserved.</p>
     </footer>
   );
 };
 
 export default Footer;
+

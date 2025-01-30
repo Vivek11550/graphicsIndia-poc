@@ -1,7 +1,10 @@
+import HeroContact from "@/components/Contact-Us/Hero-Contact";
+import Contactus from "@/components/Contact-Us/Contactus"
 export default function Contact(){
     return(
         <div>
-        contact us page 
+        <HeroContact/> 
+        <Contactus/>
         </div>
     )
 }

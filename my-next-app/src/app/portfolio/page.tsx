@@ -1,7 +1,11 @@
-export default function Portfoloio(){
+import HeroPortfolio from "@/components/porttfolio/Hero"
+import Ourportfolio from "@/components/porttfolio/Ourportfolio"
+
+export default function Portfolio(){
     return(
         <div>
-        portfolio
+       < HeroPortfolio/>
+       <Ourportfolio/>
         </div>
     )
 }

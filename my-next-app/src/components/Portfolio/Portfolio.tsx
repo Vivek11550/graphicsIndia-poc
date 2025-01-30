@@ -1,6 +1,7 @@
 
 
 import Image from "next/image";
+import Link from "next/link";
 import NikitaImage from "../../Assets/Nikita.png";
 import ShredImage from "../../Assets/Shred.png";
 
@@ -29,7 +30,7 @@ const Portfolio = () => {
           {portfolioItems.map((item) => (
             <div
               key={item.id}
-              className="overflow-hidden rounded-lg shadow-lg m-4 p-4"
+              className="overflow-hidden  m-4 p-4"
               style={{ width: "335px", height: "386px" }}
             >
               <Image
@@ -43,10 +44,10 @@ const Portfolio = () => {
           ))}
         </div>
 
-        
+        <Link href="/portfolio" >
         <button className="bg-black text-white px-8 py-3 rounded hover:bg-gray-800 transition">
-          View All
-        </button>
+           View All   
+        </button></Link>
       </div>
     </section>
   );
