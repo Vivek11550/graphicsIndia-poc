@@ -200,27 +200,27 @@ export default function ServiceComponent() {
            {/* Get in Touch Section  */}
            <div className=" p-8 rounded-lg mt-16 grid grid-cols-1 md:grid-cols-2"> 
           
-            {/* Map Image */}
-            <div className="mt-16 ">
+        
+            <div className="mt-6 p-6">
               <h2
-                className="text-2xl font-bold text-black mb-6 text-center"
+                className="text-2xl font-bold text-black mb-6 text-center "
                 style={{ fontFamily: "PT Serif, serif" }}
               >
                 Get in Touch with Us
               </h2>
-              <div className="rounded-lg shadow-lg">
+              <div >
                 <Image
                   src={mapImage}
                   alt="Map Location"
                   width={644}
                   height={450}
-                  className="rounded-lg shadow-lg"
+                  
                 />
               </div>
             </div>
   
-            {/* Contact Form */}
-            <div className="bg-white bg-opacity-80 p-6 rounded-lg shadow-lg"
+            
+            <div className="bg-#9A9A9A bg-opacity-80 p-6"
             
             >
               <form className="space-y-4">
@@ -228,44 +228,45 @@ export default function ServiceComponent() {
                   <input
                     type="text"
                     placeholder="First Name"
-                    className="w-full p-3 border border-gray-300 rounded"
+                    // className="w-full p-3 border border-gray-300 rounded"
+                    className="w-full p-3 border-b border-gray-300 rounded-none focus:outline-none focus:border-blue-500 "
                   />
                   <input
                     type="text"
                     placeholder="Last Name"
-                    className="w-full p-3 border border-gray-300 rounded"
+                    className="w-full p-3 border-b border-gray-300 rounded-none focus:outline-none focus:border-blue-500"
                   />
                 </div>
                 <input
                   type="email"
                   placeholder="E-mail"
-                  className="w-full p-3 border border-gray-300 rounded"
+                  className= "w-full p-3 border-b border-gray-300 rounded-none focus:outline-none focus:border-blue-500 "
                 />
                 <input
                   type="text"
                   placeholder="Subject"
-                  className="w-full p-3 border border-gray-300 rounded"
+                  className="w-full p-3 border-b border-gray-300 rounded-none focus:outline-none focus:border-blue-500 "
                 />
                 <textarea
                   placeholder="Message"
                   rows={4}
-                  className="w-full p-3 border border-gray-300 rounded"
+                  className="w-full p-3 border-b border-gray-300 rounded-none focus:outline-none focus:border-blue-500 "
                 ></textarea>
                 <button
                   type="submit"
-                  className="w-full bg-black text-white py-3 rounded hover:bg-gray-800 transition"
+                  className="w-auto px-4 py-2 text-sm bg-black text-white  rounded hover:bg-gray-800 transition "
                 >
                   Send Message
                 </button>
               </form>
-              <div className="mt-6">
+              {/* <div className="mt-6">
                 <p className="text-sm text-gray-700">
                   <strong>Mobile:</strong> 9876542312
                 </p>
                 <p className="text-sm text-gray-700">
                   <strong>Email:</strong> email@123.com
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

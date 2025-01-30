@@ -2,7 +2,7 @@
 
 
 import Image from "next/image";
-import aboutImage from "../../assets/About.png"; // Replace with your image path
+import aboutImage from "../../assets/About.png"; 
 
 export default function AboutCompany() {
   return (
