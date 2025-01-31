@@ -2,7 +2,7 @@
 
 
 import Image from "next/image";
-import aboutImage from "../../Assets/AboutImage.png"; 
+import aboutImage from "../../Assets/Home-assets/AboutImage.png"; 
 
 export default function AboutCompany() {
   return (

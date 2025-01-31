@@ -57,13 +57,13 @@ const HeroAbout = () => {
       {/* our mission */}
       <div className="text-center  py-20 bg-[#132238] text-white">
         <h2
-          className="text-3xl md:text-4xl font-bold  mb-4 mr-16 text-center"
+          className="text-3xl md:text-4xl  mb-6 font-bold  text-center"
           style={{ fontFamily: "PT Serif, serif" }}
         >
           Our Mission
         </h2>
         <p
-          className=" text-base  mb-6 mr-16 text-center "
+          className=" text-base  mb-6  text-center px-10 "
           style={{ fontFamily: "Poppins, sans-serif" }}
         >
           Our mission is to empower businesses with innovative web solutions
