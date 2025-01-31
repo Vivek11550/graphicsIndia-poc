@@ -1,6 +1,7 @@
 import HeroSection from '@/components/Hero/Hero';
  import About from '@/components/About/About';
-import Services from '@/components/Services/Services';
+ 
+// import Services from '@/components/Services/Services';
 import Portfolio from '@/components/Portfolio/Portfolio';
 export default function Home() {
   return(
@@ -9,7 +10,8 @@ export default function Home() {
        <HeroSection/>
          <About/>  
          <Portfolio/>
-        <Services/>
+         <How-we-do/>
+        {/* <Services/> */}
         
     </div> 
     

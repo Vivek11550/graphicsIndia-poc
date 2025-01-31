@@ -24,7 +24,7 @@ const Footer = () => {
         </nav>
 
         
-        <div className="flex space-x-4">
+         <div className="flex space-x-4">
           <Link href="https://facebook.com" target="_blank" className="p-2 rounded-full bg-white/[0.2] hover:bg-white/[0.4] transition">
             <FaFacebookF size={20} />
           </Link>
@@ -37,7 +37,7 @@ const Footer = () => {
           <Link href="https://instagram.com" target="_blank" className="p-2 rounded-full bg-white/[0.2] hover:bg-white/[0.4] transition">
             <FaInstagram size={20} />
           </Link>
-        </div>
+        </div> 
 
       </div>
 

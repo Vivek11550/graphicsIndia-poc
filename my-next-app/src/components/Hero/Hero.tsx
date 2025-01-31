@@ -19,10 +19,10 @@ const HeroSection = () => {
       
       <div className="absolute inset-0 bg-black bg-opacity-10"></div>
       
-      <div className="flex items-center justify-center h-screen text-center">
+      <div className="flex items-center justify-center h-screen text-center flex-col">
 
       <div className="relative z-10 max-w-lg text-white">
-        <h1 className="text-3xl lg:text-3xl font-bold mb-4  px-8">
+        <h1 className="text-3xl lg:text-3xl font-bold mb-4  px-8 ml-10">
           Innovative IT Services for Website Development
           
         </h1>
@@ -31,7 +31,7 @@ const HeroSection = () => {
         </p>
         <a
           href="/contact-us"
-          className="bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition border border-black mr-7 ms-10">
+          className="bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition border border-black ">
           Contact Us
         </a>
       </div>
