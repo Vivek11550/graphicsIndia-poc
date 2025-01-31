@@ -1,18 +1,16 @@
-import HeroSection from '@/components/Hero/Hero';
- import About from '@/components/About/About';
- 
-// import Services from '@/components/Services/Services';
-import Portfolio from '@/components/Portfolio/Portfolio';
+import HeroSection from '@/components/Home/Hero';
+ import About from '@/components/Home/About';
+ import HowWeDo from '@/components/Home/How-we-do';
+ import Portfolio from '@/components/Home/Portfolio';
+
 export default function Home() {
   return(
     
      <div >
        <HeroSection/>
          <About/>  
-         <Portfolio/>
-         <How-we-do/>
-        {/* <Services/> */}
-        
+          <Portfolio/> 
+         <HowWeDo/>
     </div> 
     
   )

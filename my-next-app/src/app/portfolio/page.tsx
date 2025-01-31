@@ -4,8 +4,8 @@ import Ourportfolio from "@/components/porttfolio/Ourportfolio"
 export default function Portfolio(){
     return(
         <div>
-       < HeroPortfolio/>
-       <Ourportfolio/>
+       {/* < HeroPortfolio/>
+       <Ourportfolio/> */}
         </div>
     )
 }
