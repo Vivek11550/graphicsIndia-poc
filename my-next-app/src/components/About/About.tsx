@@ -2,46 +2,41 @@
 
 
 import Image from "next/image";
-import aboutImage from "../../assets/About.png"; 
+import aboutImage from "../../Assets/AboutImage.png"; 
 
 export default function AboutCompany() {
   return (
-    <section className="bg-gray-100 py-16 px-6 md:px-12">
-      <div className="container mx-auto flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-12">
+    <section className="flex justify-center px-6 py-12 bg-white">
+      
+      <div className="bg-white shadow-lg rounded-lg p-8 flex flex-col md:flex-row items-center max-w-4xl w-full">
         
-        <div className="md:w-1/2">
-          <h2
-            className="text-3xl md:text-4xl font-bold text-black mb-4 mr-16 px-28"
-            style={{ fontFamily: "PT Serif, serif" }}
-          >
-            ABOUT COMPANY
-          </h2>
-          <p
-            className="text-black text-base  mb-6 mr-16 px-28 "
-            style={{ fontFamily: "Poppins, sans-serif" }}
-          >
-           
-           At India Graphic Online, we provide innovative IT solutions to drive business growth and efficiency. 
-           Our expertise spans Software Development, UI/UX & Web Design, ERP Solutions, and SEO Management. 
-           Specializing in MERN, MEAN, and WordPress platforms, our team crafts tailored digital experiences
-           designed to meet your unique needs and deliver exceptional results.
-
-          </p>
-          <button className="bg-black text-white px-6 py-2 rounded hover:bg-gray-800 transition mt-4 mr-14 ms-28 ">
-            Learn More
-          </button>
-        </div>
-
-        
-        <div className="md:w-1/2 flex justify-center mr-auto pr-48" >
+        {/* Left: Image */}
+        <div className="w-full md:w-1/2 p-6">
           <Image
             src={aboutImage}
             alt="About Company"
-            width={468}
-            height={355}
-            className="rounded-lg shadow-lg"
+            width={500}
+            height={400}
+            //className="rounded-lg shadow-lg"
           />
         </div>
+
+        {/* Right: Company Details */}
+        <div className="w-full md:w-1/2 p-6 text-center md:text-left">
+          <h2 className="text-3xl  text-gray-800  font-sans font-bold text-center mb-4">ABOUT COMPANY</h2>
+          <p className="text-gray-600 text-lg  font-poppins ">
+            India Graphic Online offers innovative IT solutions to enhance business growth and efficiency.Our Expertise includes Software development,UI/UX & web Design,ERP Solutions,and SEO Management.We Specialize in MERN,MEAN and wordpress platforms,creating customised digital experiences that cater to your unique needs and deliever outstanding results 
+            
+          </p>
+          
+          <a
+            href="/contact-us"
+            className="inline-block bg-purple-700 text-white px-4 py-2 mt-6  "
+          >
+            Learn More
+          </a>
+        </div>
+
       </div>
     </section>
   );
