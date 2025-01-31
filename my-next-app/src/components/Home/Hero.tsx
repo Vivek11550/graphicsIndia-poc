@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Hero from "../../Assets/Hero-Home.png";
+import Hero from "../../Assets/Home-assets/Hero-Home.png"
 
 const HeroSection = () => {
   return (
