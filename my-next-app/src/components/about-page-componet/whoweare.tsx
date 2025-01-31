@@ -52,13 +52,11 @@ const Whoweare = () => {
         </p>
       </div>
 
-      <div className="flex justify-center gap-7">
-        <Image src={next} alt="nextjs image" width={180} />
-
-        <Image src={mern} alt="nextjs image" width={200} />
-
-        <Image src={wordpress} alt="nextjs image" width={280} />
-      </div>
+      <div className="flex justify-center gap-7 mt-6 flex-wrap">
+          <Image src={next} alt="nextjs image" className="w-24 md:w-36 lg:w-44" />
+          <Image src={mern} alt="mern image" className="w-28 md:w-40 lg:w-48" />
+          <Image src={wordpress} alt="wordpress image" className="w-36 md:w-48 lg:w-56" />
+        </div>
     </div>
   );
 };

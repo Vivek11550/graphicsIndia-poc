@@ -1,5 +1,5 @@
-import HeroPortfolio from "@/components/porttfolio/Hero"
-import Ourportfolio from "@/components/porttfolio/Ourportfolio"
+
+import Herocomponent from "@/components/ui/herocomponent"
 
 export default function Portfolio(){
     return(
