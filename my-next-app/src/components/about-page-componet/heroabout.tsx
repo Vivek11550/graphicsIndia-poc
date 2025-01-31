@@ -2,71 +2,68 @@ import React from "react";
 import Image from "next/image";
 import aboutimg from "../../Assets/about-assets/aboutimg.png";
 import director from "../../Assets/about-assets/director.png";
+import cofounder from "../../Assets/about-assets/co-founder.png";
+import Herocomponent from "../ui/herocomponent";
+
 
 const HeroAbout = () => {
   return (
     <div>
       {/* hero image section */}
-
-      <section className="relative bg-cover bg-center bg-no-repeat h-screen flex items-end justify-center ">
-        <Image
-          src={aboutimg}
-          alt="Descriptive text"
-          layout="fill"
-          objectFit="cover"
-          priority
-        />
-        <div className="relative z-10 text-white bg-black bg-opacity-70 h-32 w-full flex items-center justify-center">
-          <h1 className="text-2xl lg:text-4xl font-bold">About company</h1>
-        </div>
-      </section>
-
+      
+       <Herocomponent imageurl={aboutimg} title="About Comapany"/> 
       {/* director section ---------- */}
-
-      <div className="bg-[#E0E3E5] flex py-6 ">
-        <div className="container mx-auto flex flex-col md:flex-row items-center space-y-8 md:space-y-0 md:space-x-12">
-          <div className="md:w-1/2 mt-4">
-            <h2
-              className="text-3xl md:text-4xl font-bold text-black mb-4 mr-16 px-28"
-              style={{ fontFamily: "PT Serif, serif" }}
-            >
-              Our director
+      <section className="flex justify-center items-center gap-10 bg-white w-full  py-10 flex-col">
+        <div className="bg-white shadow-lg rounded-lg p-8 flex flex-col md:flex-row items-center max-w-4xl w-full">
+          {/* Left: Image */}
+          <div className="w-full md:w-1/2 p-6">
+            <Image src={director} alt="About Company" />
+          </div>
+          {/* Right: Company Details */}
+          <div className="w-full md:w-1/2 p-6 text-center md:text-left">
+            <h2 className="text-3xl  text-gray-800  font-sans font-bold text-center mb-4">
+              Director
             </h2>
-            <p
-              className="text-black text-base  mb-6 mr-16 px-28 "
-              style={{ fontFamily: "Poppins, sans-serif" }}
-            >
-              23 years of experience in the IT domain. Rajesh is a digital
-              transformation enthusiast, Rajesh spent the last one and half
-              decades assisting clients with their digital transformation
-              journey- from a humble website designing to social media marketing
-              and sophisticated mobile applications, ERP Solutions, SAP
-              Implementation, Cyber Security, Lead Gen Google / FB Ads and much
-              more.
+            <p className="text-gray-600 text-lg  font-poppins ">
+              Rajesh has 23 years of experience in the IT domain and is a
+              passionate digital transformation enthusiast. Over the past 15
+              years, he has helped clients navigate their digital transformation
+              journeys, ranging from website design to social media marketing,
+              mobile applications, ERP solutions, SAP implementation, cyber
+              security, and lead generation through Google and Facebook ads.
+            </p>
+          </div>
+        </div>
+        <div className="bg-white shadow-lg rounded-lg p-8 flex flex-col md:flex-row items-center max-w-4xl w-full">
+          {/* left: Co-founder detail */}
+          <div className="w-full md:w-1/2 p-6 text-center md:text-left">
+            <h2 className="text-3xl  text-gray-800  font-sans font-bold text-center mb-4">
+              CO FOUNDER
+            </h2>
+            <p className="text-gray-600 text-lg  font-poppins ">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+              Temporibus reprehenderit, quas aperiam, sequi adipisci a alias
+              architecto dolore recusandae quasi, doloribus nostrum quisquam
+              ipsum numquam cupiditate pariatur ipsam earum est!
             </p>
           </div>
 
-          <div className="md:w-1/2 flex justify-center mr-auto pr-48">
-            <Image
-              src={director}
-              alt="About Company"
-              width={468}
-              height={355}
-              className="rounded-lg shadow-lg"
-            />
+          {/* right: Image */}
+          <div className="w-full md:w-1/2 p-6">
+            <Image src={cofounder} alt="About Company" />
           </div>
         </div>
-      </div>
+      </section>
       {/* our mission */}
-      <div className="text-center px-40 py-20">
+      <div className="text-center  py-20 bg-[#132238] text-white">
         <h2
-          className="text-3xl md:text-4xl font-bold text-black mb-4 mr-16 px-28"
+          className="text-3xl md:text-4xl font-bold  mb-4 mr-16 text-center"
           style={{ fontFamily: "PT Serif, serif" }}
         >
           Our Mission
         </h2>
         <p
-          className="text-black text-base  mb-6 mr-16 px-28 "
+          className=" text-base  mb-6 mr-16 text-center "
           style={{ fontFamily: "Poppins, sans-serif" }}
         >
           Our mission is to empower businesses with innovative web solutions

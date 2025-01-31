@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import './globals.css';
 import Header from '@/components/header/header';
-import Footer from '@/components/footer/footer';
+import Footer from '@/components/ui/footer';
 
 
 

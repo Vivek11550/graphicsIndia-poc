@@ -1,8 +1,4 @@
-requirements of graphics India website 
-
-1.Home page
-- text on hero section from strappy
--buttons and icons static
+requirements of graphics India website
 
 
 
