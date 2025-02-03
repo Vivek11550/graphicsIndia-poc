@@ -38,7 +38,7 @@ const Portfolio = () => {
   ];
 
   return (
-    <section className="container mx-auto px-6 py-12" style={{ backgroundColor: "white" }}>
+    <section className="container mx-auto  py-12" style={{ backgroundColor: "white" }}>
      
       <h2 className="text-4xl font-bold text-gray-800 text-center mb-10">
         Our Portfolio
@@ -68,10 +68,10 @@ const Portfolio = () => {
       </div>
 
       
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center mt-8 py-6">
         <button
           onClick={() => router.push("/portfolio")}
-          className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+          className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
         >
           View More
         </button>

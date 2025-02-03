@@ -1,4 +1,3 @@
-
 "use client";
 
 const SoftDev = () => {
@@ -13,7 +12,7 @@ const SoftDev = () => {
       id: 2,
       title: "UI/UX & Web Design",
       description:
-        "We provide custom software development solutions to meet your unique business needs, ensuring scalability, security, and high performance.",
+        "We design intuitive, user-friendly websites with a focus on seamless user experience and modern, responsive designs that engage visitors.",
     },
     {
       id: 3,
@@ -25,22 +24,22 @@ const SoftDev = () => {
       id: 4,
       title: "ERP Solutions",
       description:
-        "We design intuitive, user-friendly websites with a focus on seamless user experience and modern, responsive designs that engage visitors.",
+        "We develop ERP solutions that streamline business processes, improve efficiency, and integrate seamlessly with existing systems.",
     },
   ];
 
   return (
-    <div className="container mx-auto px-64 py-10 bg-white ">
+    <div className="container mx-auto px-6 md:px-12 lg:px-24 py-10 bg-white">
       <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
         Our Expertise
       </h2>
 
-      {/* Grid layout for two rows with two columns each */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center">
+      {/* Responsive Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {services.map((service) => (
           <div
             key={service.id}
-            className="bg-white shadow-lg p-6 w-[500px] h-[140px] flex flex-col justify-center border-l-4 border-purple-500"
+            className="bg-white shadow-lg p-6 w-full h-auto flex flex-col justify-center border-l-4 border-purple-500 transition-transform transform hover:scale-105"
           >
             <h3 className="text-xl font-semibold text-black mb-2">
               {service.title}

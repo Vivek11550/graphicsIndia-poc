@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import { Send } from "lucide-react";
 
 interface FormData {
@@ -23,8 +23,19 @@ const Form: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // 🔹 Log form data
     console.log("Form submitted:", formData);
-    // Add your form submission logic here
+
+    // 🔹 Reset form state
+    setFormData({
+      name: "",
+      email: "",
+      location: "",
+      budget: "",
+      subject: "",
+      message: "",
+    });
   };
 
   const handleChange = (
@@ -35,23 +46,25 @@ const Form: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-10 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white py-12  lg:px-10 sm:px-6 lg:px-8">
       <h2 className="text-3xl font-bold text-center text-black py-5">
         Contact Us
       </h2>
       <div className="max-w-7xl mx-auto">
-        <div className="bg-white flex rounded-2xl shadow-xl overflow-hidden">
-         {/* map */}
-          <div className="py-10 ml-5">
+        <div className="bg-white flex flex-col lg:flex-row rounded-2xl shadow-xl overflow-hidden">
+          {/* Map Section */}
+          <div className="py-10 lg:w-1/2 p-5">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7566.098133653227!2d73.902134!3d18.5266847!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1c1c0b70591%3A0x98e45a8c6fc2ce0f!2sGraphics%20India%20Online!5e0!3m2!1sen!2sin!4v1738571226171!5m2!1sen!2sin"
-              width="600"
+              width="100%"
               height="450"
               loading="lazy"
+              className="rounded-lg shadow-md"
             ></iframe>
           </div>
- {/* Form Section */}
-          <div className="p-8 lg:p-12">
+
+          {/* Form Section */}
+          <div className="p-8 lg:p-12 lg:w-1/2">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                 {[
@@ -81,22 +94,23 @@ const Form: React.FC = () => {
                     required: true,
                   },
                 ].map(({ id, label, type, required }) => (
-                  <div key={id} className="w-full   ">
+                  <div key={id} className="w-full">
                     <label
                       htmlFor={id}
-                      className="block text-sm font-medium  text-gray-700"
+                      className="block text-sm font-medium text-gray-700"
                     >
                       {label}
                       {required && <span className="text-purple-600">*</span>}
                     </label>
                     <input
+          
                       type={type}
                       name={id}
                       id={id}
                       required={required}
                       value={formData[id as keyof FormData]}
                       onChange={handleChange}
-                      className="mt-1 block w-full border-b-2 border-purple-500 focus:outline-none focus:border-purple-600 p-2"
+                      className=" block w-full border-b-2 border-purple-500 focus:outline-none focus:border-purple-600 "
                     />
                   </div>
                 ))}
@@ -111,7 +125,7 @@ const Form: React.FC = () => {
                   <textarea
                     name="message"
                     id="message"
-                    rows={4}
+              
                     required
                     value={formData.message}
                     onChange={handleChange}
