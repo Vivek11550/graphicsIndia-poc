@@ -8,37 +8,37 @@ import { useRouter } from "next/navigation";
 import NikitaImg from "../../Assets/Home-assets/HomePortfolio/NikitaImg.png";
 import ShredImg from "../../Assets/Home-assets/HomePortfolio/ShredImg.png";
 import UrbanAxisImg from "../../Assets/Home-assets/HomePortfolio/UrbanAxisImg.png"
-
+const projects = [
+  {
+    id: 1,
+    title: "Nikita's Curry Corner",
+    description:
+      "Nikita's Curry Corner provides fast, responsive ordering with secure Stripe payments for an excellent user experience.",
+    image: NikitaImg,
+  },
+  {
+    id: 2,
+    title: "Shred-n-Shape",
+    description:
+      "Shred n Shape offers tailored fitness plans, nutritional guidance, and seamless payments for optimal performance.",
+    image: ShredImg,
+  },
+  {
+    id: 3,
+    title: "UrbanAxis",
+    description:
+      "UrbanAxis, built with Next.js, features a modern design, integrated blog, contact form, and SEO optimization.",
+    image: UrbanAxisImg,
+  },
+];
 
 const Portfolio = () => {
   const router = useRouter();
 
-  const projects = [
-    {
-      id: 1,
-      title: "Nikita's Curry Corner",
-      description:
-        "Nikita's Curry Corner provides fast, responsive ordering with secure Stripe payments for an excellent user experience.",
-      image: NikitaImg,
-    },
-    {
-      id: 2,
-      title: "Shred-n-Shape",
-      description:
-        "Shred n Shape offers tailored fitness plans, nutritional guidance, and seamless payments for optimal performance.",
-      image: ShredImg,
-    },
-    {
-      id: 3,
-      title: "UrbanAxis",
-      description:
-        "UrbanAxis, built with Next.js, features a modern design, integrated blog, contact form, and SEO optimization.",
-      image: UrbanAxisImg,
-    },
-  ];
+ 
 
   return (
-    <section className="container mx-auto px-6 py-12" style={{ backgroundColor: "#F0F1F3" }}>
+    <section className="container mx-auto px-6 py-12" style={{ backgroundColor: "white" }}>
      
       <h2 className="text-4xl font-bold text-gray-800 text-center mb-10">
         Our Portfolio
@@ -76,7 +76,29 @@ const Portfolio = () => {
           View More
         </button>
       </div>
+      
+    
+      
+      {/* { Expert IT Services for web development and SEO } */}
+        <div className="text-center  py-20 bg-[#132238] text-white">
+        <h2
+          className="text-3xl md:text-4xl  mb-6 font-bold  text-center"
+          style={{ fontFamily: "PT Serif, serif" }}
+        >
+          Expert IT Services for web development and SEO
+        </h2>
+        <p
+          className=" text-base  mb-6  text-center px-10 "
+          style={{ fontFamily: "Poppins, sans-serif" }}
+        >
+          Innovative IT services, including custom website development, UI/UX design, ERP solutions, and SEO management, tailored to drive business growth and success.
+        </p>
+      </div> 
+    
     </section>
+    
+      
+    
   );
 };
 

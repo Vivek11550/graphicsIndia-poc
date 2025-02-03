@@ -9,7 +9,7 @@ import PlanningImg from "../../Assets/Home-assets/Howwedo-assets/Planning.png"
 
 const HowWeDo = () => {
   return (
-    <section className="container mx-auto px-6 py-12"style={{ backgroundColor: "#F0F1F3" }}>
+    <section className="container mx-auto px-6 py-12"style={{ backgroundColor: "white" }}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         {/* Left Column - Title & Description */}
         <div className="flex flex-col justify-center items-center md:items-start p-6">

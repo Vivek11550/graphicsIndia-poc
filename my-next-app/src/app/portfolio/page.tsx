@@ -1,11 +1,10 @@
 
-// import Herocomponent from "@/components/ui/herocomponent"
+import PortfolioPage from "@/components/Portfolio/PortfolioPage"
 
 export default function Portfolio(){
     return(
         <div>
-       {/* < HeroPortfolio/>
-       <Ourportfolio/> */}
+    <PortfolioPage/>
         </div>
     )
 }
