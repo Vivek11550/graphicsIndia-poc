@@ -1,8 +1,11 @@
-
+import Herocontact from "../../components/contact/herocontact"
+import Form from "../../components/contact/form"
 export default function Contact(){
     return(
+      
         <div>
-      contact page
+      <Herocontact/>
+      <Form/>
         </div>
     )
 }

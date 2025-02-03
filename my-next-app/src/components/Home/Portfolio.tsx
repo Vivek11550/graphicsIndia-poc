@@ -10,6 +10,7 @@ import ShredImg from "../../Assets/Home-assets/HomePortfolio/ShredImg.png";
 import UrbanAxisImg from "../../Assets/Home-assets/HomePortfolio/UrbanAxisImg.png"
 
 
+
 const Portfolio = () => {
   const router = useRouter();
 
@@ -38,18 +39,18 @@ const Portfolio = () => {
   ];
 
   return (
-    <section className="container mx-auto px-6 py-12" style={{ backgroundColor: "#F0F1F3" }}>
+    <section className="container mx-auto  px-10 py-12" style={{ backgroundColor: "white" }}>
      
       <h2 className="text-4xl font-bold text-gray-800 text-center mb-10">
         Our Portfolio
       </h2>
 
       
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-2 place-items-center px-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3  place-items-center ">
         {projects.map((project) => (
           <div
             key={project.id}
-            className="bg-white shadow-lg rounded-lg p-6 w-[350px] h-[380px] flex flex-col justify-between"
+            className="bg-white shadow-lg rounded-lg p-6 w-[300px] h-[380px] flex flex-col justify-between"
           >
             
             <Image

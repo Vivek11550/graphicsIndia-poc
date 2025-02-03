@@ -5,13 +5,10 @@ import director from "../../Assets/about-assets/director.png";
 import cofounder from "../../Assets/about-assets/co-founder.png";
 import Herocomponent from "../ui/herocomponent";
 
-
 const HeroAbout = () => {
   return (
     <div>
-      {/* hero image section */}
-      
-       <Herocomponent imageurl={aboutimg} title="About Comapany"/> 
+      <Herocomponent imageurl={aboutimg} title="About Comapany" />
       {/* director section ---------- */}
       <section className="flex justify-center items-center gap-10 bg-white w-full  py-10 flex-col">
         <div className="bg-white shadow-lg rounded-lg p-8 flex flex-col md:flex-row items-center max-w-4xl w-full">
@@ -22,9 +19,9 @@ const HeroAbout = () => {
           {/* Right: Company Details */}
           <div className="w-full md:w-1/2 p-6 text-center md:text-left">
             <h2 className="text-3xl  text-gray-800  font-sans font-bold text-center mb-4">
-              Director
+              DIRECTOR
             </h2>
-            <p className="text-gray-600 text-lg  font-poppins ">
+            <p className="text-gray-600 text-lg">
               Rajesh has 23 years of experience in the IT domain and is a
               passionate digital transformation enthusiast. Over the past 15
               years, he has helped clients navigate their digital transformation
@@ -40,11 +37,13 @@ const HeroAbout = () => {
             <h2 className="text-3xl  text-gray-800  font-sans font-bold text-center mb-4">
               CO FOUNDER
             </h2>
-            <p className="text-gray-600 text-lg  font-poppins ">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Temporibus reprehenderit, quas aperiam, sequi adipisci a alias
-              architecto dolore recusandae quasi, doloribus nostrum quisquam
-              ipsum numquam cupiditate pariatur ipsam earum est!
+            <p className="text-gray-600 text-lg  ">
+              Mohsin Shaikh specializes in clean, structured code and MERN/MEAN
+              full-stack development. With experience at Ecotech IT Solutions
+              Pvt. Ltd. and Zensar Technologies. His expertise in responsive web
+              development, corporate training, and staff augmentation makes him
+              a key player in delivering innovative solutions and driving client
+              success.
             </p>
           </div>
 

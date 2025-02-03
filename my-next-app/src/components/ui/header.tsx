@@ -10,7 +10,7 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bg-white text-black shadow-md ">
+    <header className="bg-white text-black shadow-md lg:px-6 ">
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo and Title */}
         <div className="flex items-center space-x-4">
