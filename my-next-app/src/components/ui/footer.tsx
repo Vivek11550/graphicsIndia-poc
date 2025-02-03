@@ -12,7 +12,7 @@ const Footer = () => {
     
         <div className="flex  items-center space-x-4 mb-6 md:mb-0">
         <Image src={logo} alt="India Graphic Online Logo" width={50} height={50} />
-          <h2 className="text-xl font-bold">India Graphic Online</h2>
+          <h2 className="text-xl font-bold">Graphics India Online</h2>
         </div>
            
         <nav className="flex flex-wrap justify-center space-x-6 md:space-x-8 mb-6 md:mb-0">
