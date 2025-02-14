@@ -1,0 +1,87 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "text"
+    },
+    "keypoints": {
+      "type": "text"
+    },
+    "howwedo": {
+      "type": "text"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "portfolio": {
+      "type": "string"
+    },
+    "portfolio_images": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "portfolio_links": {
+      "type": "json"
+    },
+    "portfolio_title": {
+      "type": "string"
+    },
+    "portfolio_description": {
+      "type": "text"
+    },
+    "it_services": {
+      "type": "string"
+    },
+    "our_expertise": {
+      "type": "string"
+    },
+    "our_expertise_title": {
+      "type": "string"
+    },
+    "our_expertise_desc": {
+      "type": "text"
+    },
+    "success_stories": {
+      "type": "string"
+    },
+    "success_stories_img": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "contact_us": {
+      "type": "string"
+    }
+  }
+}

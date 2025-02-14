@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services_cards",
+  "info": {
+    "singularName": "services-card",
+    "pluralName": "services-cards",
+    "displayName": "services_card",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "customwebdesign": {
+      "type": "text"
+    },
+    "customwebdesignImg": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "customwebdesigntitle": {
+      "type": "string"
+    },
+    "customwebdesigndesc": {
+      "type": "text"
+    }
+  }
+}
