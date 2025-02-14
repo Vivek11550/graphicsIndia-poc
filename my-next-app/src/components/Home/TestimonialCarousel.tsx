@@ -39,7 +39,12 @@ const testimonials = [
 
 export default function TestimonialCarousel() {
   return (
+<<<<<<< HEAD
+    // <div className="w-full max-w-5xl mx-auto py-10 px-4 bg-white">
+    <div className = "mx-auto py-10 px-4 bg-white">
+=======
     <div className="w-full max-w-5xl mx-auto py-10 px-4 bg-[white] relative">
+>>>>>>> a9119ae1cb74788d246c4d90cc710200de43fc3d
       <h2 className="text-2xl md:text-3xl font-bold text-center text-black mb-8">
         Clients Success Stories
       </h2>
@@ -88,10 +93,18 @@ export default function TestimonialCarousel() {
                   className="w-22"
                 />
                 <h3 className="font-bold text-lg mt-3">{testimonial.name}</h3>
+<<<<<<< HEAD
+                <p className="text-sm  text-center text-gray-300">
+                  {testimonial.location}
+                </p>
+              </div>
+
+=======
                 <p className="text-sm text-center text-gray-300">
                   {testimonial.location}
                 </p>
               </div>
+>>>>>>> a9119ae1cb74788d246c4d90cc710200de43fc3d
               <div>
                 <p className="py-2">⭐⭐⭐⭐⭐</p>
                 <p className="text-sm text-gray-300">{testimonial.message}</p>

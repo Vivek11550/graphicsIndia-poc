@@ -12,10 +12,10 @@ const HowWeDo = () => {
         
         {/* Left Column - Title & Description */}
         <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 px-32">
             How We Do ?
           </h2>
-          <p className="text-gray-600 text-lg max-w-lg">
+          <p className="text-gray-600 text-lg max-w-lg ">
             Our approach follows a structured process that ensures a smooth and efficient development cycle. 
             We focus on understanding your needs, planning effectively, developing high-quality solutions, 
             and maintaining them for long-term success.
