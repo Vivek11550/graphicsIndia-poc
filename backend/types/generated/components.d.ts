@@ -11,14 +11,6 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedPortfolioProjects extends Struct.ComponentSchema {
-  collectionName: 'components_shared_portfolio_projects';
-  info: {
-    displayName: 'portfolio_projects';
-  };
-  attributes: {};
-}
-
 export interface SharedQuote extends Struct.ComponentSchema {
   collectionName: 'components_shared_quotes';
   info: {
@@ -74,7 +66,6 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'shared.media': SharedMedia;
-      'shared.portfolio-projects': SharedPortfolioProjects;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
