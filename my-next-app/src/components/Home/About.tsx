@@ -6,7 +6,7 @@ import aboutImage from "../../Assets/Home-assets/AboutImage.png";
 
 export default function AboutCompany() {
   return (
-    <section className="flex justify-center px-6 py-12 bg-white">
+    <section className="flex w-full justify-center px-6 py-12 bg-white">
       
       <div className="bg-white shadow-lg rounded-lg p-8 flex flex-col md:flex-row items-center max-w-4xl w-full">
         

@@ -1,17 +1,11 @@
-
-
-
 "use client";
 
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import NikitaImg from "../../Assets/Home-assets/HomePortfolio/NikitaImg.png";
 import ShredImg from "../../Assets/Home-assets/HomePortfolio/ShredImg.png";
-import UrbanAxisImg from "../../Assets/Home-assets/HomePortfolio/UrbanAxisImg.png"
-
+import UrbanAxisImg from "../../Assets/Home-assets/HomePortfolio/UrbanAxisImg.png";
 
 const Portfolio = () => {
-  const router = useRouter();
 
   const projects = [
     {
@@ -20,6 +14,7 @@ const Portfolio = () => {
       description:
         "Nikita's Curry Corner provides fast, responsive ordering with secure Stripe payments for an excellent user experience.",
       image: NikitaImg,
+      link: "https://nikitascurrycorner.ca/",
     },
     {
       id: 2,
@@ -27,6 +22,7 @@ const Portfolio = () => {
       description:
         "Shred n Shape offers tailored fitness plans, nutritional guidance, and seamless payments for optimal performance.",
       image: ShredImg,
+      link: "https://shrednshape.co.uk/",
     },
     {
       id: 3,
@@ -34,75 +30,59 @@ const Portfolio = () => {
       description:
         "UrbanAxis, built with Next.js, features a modern design, integrated blog, contact form, and SEO optimization.",
       image: UrbanAxisImg,
+      link: "https://www.urbanaxis.co.in/",
     },
   ];
 
   return (
-    <section className="container mx-auto  py-12" style={{ backgroundColor: "white" }}>
-     
-      <h2 className="text-4xl font-bold text-gray-800 text-center mb-10">
+    <section className="w-full bg-white ">
+    <div className="container mx-auto px-12 py-12">
+      <h2 className="text-3xl font-bold text-center text-gray-800 mb-4 py-5">
         Our Portfolio
       </h2>
 
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3  place-items-center ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center">
         {projects.map((project) => (
-          <div
+          <a
             key={project.id}
-            className="bg-white shadow-lg rounded-lg p-6 w-[300px] h-[380px] flex flex-col justify-between"
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block max-w-[350px] w-full bg-white shadow-md rounded-lg hover:shadow-lg transition-transform transform hover:scale-105"
           >
-            
-            <Image
-              src={project.image}
-              alt={project.title}
-              width={400}
-              height={250}
-              className="rounded-lg mb-4 w-full h-[180px] object-cover"
-            />
-           
-            <h3 className="text-xl font-semibold text-black">{project.title}</h3>
-            
-            <p className="text-gray-600 text-sm mt-2">{project.description}</p>
-          </div>
+            <div className="rounded-t-lg overflow-hidden">
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={400}
+                height={250}
+                className="w-full h-[200px] object-cover"
+              />
+            </div>
+            <div className="p-4">
+              <h3 className="text-xl font-semibold text-black">
+                {project.title}
+              </h3>
+              <p className="text-gray-600 text-sm mt-2">
+                {project.description}
+              </p>
+            </div>
+          </a>
         ))}
       </div>
+    </div>
 
-      
-      <div className="flex justify-center mt-8 py-6">
-        <button
-          onClick={() => router.push("/portfolio")}
-          className="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
-        >
-          View More
-        </button>
-      </div>
-      
-    
-      
-      {/* { Expert IT Services for web development and SEO } */}
-        <div className="text-center  py-20 bg-[#132238] text-white">
-        <h2
-          className="text-3xl md:text-4xl  mb-6 font-bold  text-center"
-          style={{ fontFamily: "PT Serif, serif" }}
-        >
-          Expert IT Services for web development and SEO
-        </h2>
-        <p
-          className=" text-base  mb-6  text-center px-10 "
-          style={{ fontFamily: "Poppins, sans-serif" }}
-        >
-          Innovative IT services, including custom website development, UI/UX design, ERP solutions, and SEO management, tailored to drive business growth and success.
-        </p>
-      </div> 
-    
-    </section>
-    
-      
-    
+<div className="flex justify-center ">
+<a
+            href="/portfolio"
+            className="bg-black text-white  px-6 py-3 rounded-lg hover:bg-gray-200 transition border border-black">
+            show all
+          </a>
+</div>
+   
+
+  </section>
   );
 };
 
 export default Portfolio;
-
-
-
