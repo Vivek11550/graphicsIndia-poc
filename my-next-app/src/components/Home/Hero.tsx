@@ -18,12 +18,12 @@ const HeroSection = () => {
   
         <div className="absolute inset-0 bg-black bg-opacity-5"></div>
   
-        <div className="relative z-10 text-white text-center max-w-lg">
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4">
-            Innovative IT Services for Website Development
+        <div className="relative z-10 text-white text-center max-w-[50%] lg:max-w-[40%]">
+          <h1 className="text-[20px] lg:text-[36px] font-bold mb-4">
+          Custom Web & App Development Services in India
           </h1>
-          <p className="text-lg lg:text-xl mb-6">
-            Expert MERN, MEAN, and WordPress Solutions for tailored website development and business growth.
+          <p className="text-[10px] lg:text-[15px] mb-6">
+          Expert MERN, MEAN & WordPress development for businesses of all sizes. Build scalable apps and websites with custom UI/UX and integrated SEO.
           </p>
           <a
             href="/contact-us"
@@ -36,61 +36,6 @@ const HeroSection = () => {
   };
   
    export default HeroSection;
-// "use client"; 
-//  import Image from "next/image";
-//  import Hero from "../../Assets/Home-assets/Hero-Home.png"
-
-//  import { useState, useEffect } from "react";
-
-// const HomePage = () => {
-//   const [homepageData, setHomepageData] = useState(null);
-
-//   useEffect(() => {
-    
-//     fetch("http://localhost:1337/api/homepage?populate=*")
-//       .then((res) => res.json())
-//       .then((data) =>  {
-//         console.log("Fetched Homepage Data:", data);
-//         setHomepageData(data.data);
-//       })
-        
-//       .catch((error) => console.error("Error fetching homepage data:", error));
-//   }, []);
-
-//   if (!homepageData) return <p></p>;
-  
-//   const attributes = homepageData.attributes;
-//   const imageUrl = attributes?.hero_image?.url
-//     ? `http://localhost:1337${attributes.hero_image.url}`
-//     : "../../Assets/Home-assets/Hero-Home.png"; 
-
-//   return (
-//     <div className="container mx-auto px-4 py-8">
-    
-//     {attributes?.title && (
-      
-    
-//       <section className="relative w-full h-[60vh] flex flex-col items-center justify-center text-center">
-//         <Image
-//             src="../../Assets/Home-assets/Hero-Home.png"
-//             alt="Hero Image"
-//             width={1920}
-//             height={1080}
-//             className="absolute inset-0 w-full h-full object-cover"
-//           />
-//         <div className="relative z-10 bg-black bg-opacity-50 p-6 rounded-md">
-//             <h1 className="text-4xl font-bold text-white">{attributes.title}</h1>
-//             <p className="text-lg text-gray-300 mt-2">{attributes.subtitle}</p>
-//           </div>
-//       </section>
-
-// )}
-// </div>
-// );
-// };
-
-
-// export default HomePage;
 
 
 

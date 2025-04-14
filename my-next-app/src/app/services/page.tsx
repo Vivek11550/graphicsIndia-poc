@@ -3,7 +3,7 @@ import Cards  from "../../components/services-componet/Cards"
 import Whychoseus  from "../../components/services-componet/whychoseus"
 export default function Services(){
     return(
-        <div>
+        <div className="bg-white ">
         <Heroservices/>
         <Cards />
         <Whychoseus/>

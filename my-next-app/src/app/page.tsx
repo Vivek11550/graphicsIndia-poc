@@ -8,7 +8,7 @@ import TestimonialCarousel from '@/components/Home/TestimonialCarousel';
 
 export default function Home() {
   return(
-     <div >
+     <div className='bg-white w-full flex-col  items-center justify-center' >
        <HeroSection/>
          <About/>  
          <HowWeDo/>
