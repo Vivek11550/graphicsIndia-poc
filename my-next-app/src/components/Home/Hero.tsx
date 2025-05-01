@@ -1,54 +1,41 @@
-"use client";   
+"use client";
 import Image from "next/image";
-import Hero from "../../Assets/Home-assets/Hero-Home.png"
-
+import Hero from "../../Assets/Home-assets/Hero-Home.png";
 
 const HeroSection = () => {
-    return (
-      <section className="relative w-full h-[60vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-            <Image
-              src={Hero}
-              alt="Descriptive text"
-              width={1920}
-              height={1080}
-              className="w-full h-full object-cover"
-            />
-            </div>
-  
-        <div className="absolute inset-0 bg-black bg-opacity-5"></div>
-  
-        <div className="relative z-10 text-white text-center max-w-[50%] lg:max-w-[40%]">
-          <h1 className="text-[20px] lg:text-[36px] font-bold mb-4">
-          Custom Web & App Development Services in India
-          </h1>
-          <p className="text-[10px] lg:text-[15px] mb-6">
-          Expert MERN, MEAN & WordPress development for businesses of all sizes. Build scalable apps and websites with custom UI/UX and integrated SEO.
-          </p>
-          <a
-            href="/contact-us"
-            className="bg-white text-black px-6 py-3 rounded-lg hover:bg-gray-200 transition border border-black">
-            Contact Us
-          </a>
-        </div>
-      </section>
-    );
-  };
-  
-   export default HeroSection;
+  return (
+    <section className="relative w-full h-[60vh] md:h-[70vh] lg:h-[90vh] flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 w-full h-full">
+        <Image
+          src={Hero}
+          alt="Descriptive text"
+          fill
+          priority
+          className="object-cover"
+        />
+      </div>
 
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40" />
 
+      {/* Content */}
+      <div className="relative z-10 text-white text-center px-4 sm:px-6 lg:px-8 max-w-[90%] sm:max-w-[70%] lg:max-w-[50%]">
+        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
+          Scalable Web and Mobile App Development Services
+        </h1>
+        <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-6">
+          We deliver innovative web and mobile apps, ERP software, and custom UI/UX solutions to elevate your business in the digital age.
+        </p>
+        <a
+          href="/contact-us"
+          className=" bg-purple-700 text-white hover:text-black  px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-gray-200 transition border border-black text-sm sm:text-base"
+        >
+          Contact Us
+        </a>
+      </div>
+    </section>
+  );
+};
 
-  
-
- 
-
-      
-  
-
-
-
- 
-
-
-
+export default HeroSection;

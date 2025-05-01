@@ -25,7 +25,7 @@ const Footer = () => {
 
         
          <div className="flex space-x-4">
-          <Link href="https://facebook.com" target="_blank" className="p-2 rounded-full bg-white/[0.2] hover:bg-white/[0.4] transition">
+          <Link href="https://www.facebook.com/people/Graphics-India-Online-Pune/100087796726460/" target="_blank" className="p-2 rounded-full bg-white/[0.2] hover:bg-white/[0.4] transition">
             <FaFacebookF size={20} />
           </Link>
           <Link href="https://twitter.com" target="_blank" className="p-2 rounded-full bg-white/[0.2] hover:bg-white/[0.4] transition">
@@ -34,7 +34,7 @@ const Footer = () => {
           <Link href="https://youtube.com" target="_blank" className="p-2 rounded-full bg-white/[0.2] hover:bg-white/[0.4] transition">
             <FaYoutube size={20} />
           </Link>
-          <Link href="https://instagram.com" target="_blank" className="p-2 rounded-full bg-white/[0.2] hover:bg-white/[0.4] transition">
+          <Link href="https://www.instagram.com/graphicsindiaonlinepune" target="_blank" className="p-2 rounded-full bg-white/[0.2] hover:bg-white/[0.4] transition">
             <FaInstagram size={20} />
           </Link>
         </div> 

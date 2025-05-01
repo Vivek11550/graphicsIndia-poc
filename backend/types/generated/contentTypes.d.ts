@@ -431,6 +431,39 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiHomePorfolioHomePorfolio
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'home_porfolios';
+  info: {
+    description: '';
+    displayName: 'HomePorfolio';
+    pluralName: 'home-porfolios';
+    singularName: 'home-porfolio';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cardDiscription: Schema.Attribute.String;
+    cardImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    cardTitle: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::home-porfolio.home-porfolio'
+    > &
+      Schema.Attribute.Private;
+    projectlink: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiPortfolioCardPortfolioCard
   extends Struct.CollectionTypeSchema {
   collectionName: 'portfolio_cards';
@@ -457,35 +490,6 @@ export interface ApiPortfolioCardPortfolioCard
     > &
       Schema.Attribute.Private;
     projectlink: Schema.Attribute.Text;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiPortfolioPortfolio extends Struct.SingleTypeSchema {
-  collectionName: 'portfolios';
-  info: {
-    displayName: 'portfolio';
-    pluralName: 'portfolios';
-    singularName: 'portfolio';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    heroimage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    herotitle: Schema.Attribute.String;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::portfolio.portfolio'
-    > &
-      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1067,8 +1071,8 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::form.form': ApiFormForm;
       'api::global.global': ApiGlobalGlobal;
+      'api::home-porfolio.home-porfolio': ApiHomePorfolioHomePorfolio;
       'api::portfolio-card.portfolio-card': ApiPortfolioCardPortfolioCard;
-      'api::portfolio.portfolio': ApiPortfolioPortfolio;
       'api::services-card.services-card': ApiServicesCardServicesCard;
       'api::wordpressproject-card.wordpressproject-card': ApiWordpressprojectCardWordpressprojectCard;
       'plugin::content-releases.release': PluginContentReleasesRelease;

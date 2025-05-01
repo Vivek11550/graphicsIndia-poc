@@ -56,7 +56,7 @@ const Form: React.FC = () => {
 
         setSuccess("Your message has been sent successfully!");
         setFormData(initialFormData);
-      } catch (err) {
+      } catch  {
         setError("Something went wrong. Please try again.");
       } finally {
         setLoading(false);
@@ -101,7 +101,7 @@ const Form: React.FC = () => {
                       htmlFor={id}
                       className="block text-sm font-medium text-gray-700"
                     >
-                      {label} {required && <span className="text-purple-600">*</span>}
+                      {label} {required && <span className="text-blue-600">*</span>}
                     </label>
                     <input
                       type={type}
@@ -110,7 +110,7 @@ const Form: React.FC = () => {
                       required={required}
                       value={formData[id as keyof FormData]}
                       onChange={handleChange}
-                      className="block w-full border-b-2 border-purple-500 focus:outline-none focus:border-purple-600"
+                      className="block w-full border-b-2 border-blue-500 focus:outline-none focus:border-purple-600"
                     />
                   </div>
                 ))}
@@ -120,7 +120,7 @@ const Form: React.FC = () => {
                     htmlFor="message"
                     className="block text-sm font-medium text-gray-700"
                   >
-                    Message<span className="text-purple-600">*</span>
+                    Message<span className="text-blue-600">*</span>
                   </label>
                   <textarea
                     name="message"
@@ -136,7 +136,7 @@ const Form: React.FC = () => {
               {success && <p className="text-green-600">{success}</p>}
               {error && <p className="text-red-600">{error}</p>}
 
-              <div className="text-black">09850182845</div>
+              {/* <div className="text-black">09850182845</div> */}
 
               <div>
                 <button

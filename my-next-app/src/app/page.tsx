@@ -5,6 +5,7 @@ import HeroSection from '@/components/Home/Hero';
 import SoftDev from '@/components/Home/SoftDev';
 import Form from '@/components/contact/form';
 import TestimonialCarousel from '@/components/Home/TestimonialCarousel';
+import ExpertIT from '@/components/Home/ExpertIT';
 
 export default function Home() {
   return(
@@ -12,7 +13,8 @@ export default function Home() {
        <HeroSection/>
          <About/>  
          <HowWeDo/>
-          <Portfolio/> 
+          <Portfolio/>
+          <ExpertIT/> 
           <SoftDev/>
           <TestimonialCarousel/>
           <Form/>
