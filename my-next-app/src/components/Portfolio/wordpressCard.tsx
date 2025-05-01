@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import WordpressProjectCardTypes from "../../../lib/types/portfolio-types"
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Project {
@@ -25,7 +26,7 @@ const WordpressCard = () => {
         const data = await res.json();
 
         if (data?.data) {
-          const formattedProjects = data.data.map((item: any) => {
+          const formattedProjects = data.data.map((item:WordpressProjectCardTypes) => {
             const imageUrl = item?.cardImage?.formats?.thumbnail?.url
               ? `http://localhost:1337${item.cardImage.formats.thumbnail.url}`
               : "";

@@ -24,6 +24,7 @@ const Header = () => {
           <Link href="/about" className="hover:text-purple-700">About</Link>
           <Link href="/portfolio" className="hover:text-purple-700">Portfolio</Link>
           <Link href="/services" className="hover:text-purple-700">Services</Link>
+          <Link href="/blog" className="hover:text-purple-700">Blogs</Link>
           <Link href="/contact-us" className="bg-purple-700 text-white px-4 py-2 rounded">Contact</Link>
         </nav>
 
@@ -41,6 +42,7 @@ const Header = () => {
             <Link href="/about" className="hover:text-purple-700">About</Link>
             <Link href="/portfolio" className="hover:text-purple-700">Portfolio</Link>
             <Link href="/services" className="hover:text-purple-700">Services</Link>
+            <Link href="/blog" className="hover:text-purple-700">Blogs</Link>
             <Link href="/contact-us" className="bg-purple-700 text-white px-4 py-2 rounded">Contact</Link>
           </nav>
         </div>

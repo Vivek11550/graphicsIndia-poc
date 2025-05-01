@@ -15,7 +15,7 @@ const Whoweare = () => {
             <Image
               src={laptop}
               alt="laptop"
-              className="w-full h-auto max-w-[300px] lg:max-w-[400px]"
+              className="w-full h-auto max-w-[300px] lg:max-w-[500px]"
             />
           </div>
 

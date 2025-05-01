@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "home_porfolios",
+  "info": {
+    "singularName": "home-porfolio",
+    "pluralName": "home-porfolios",
+    "displayName": "HomePorfolio",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "cardImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "cardTitle": {
+      "type": "string"
+    },
+    "cardDiscription": {
+      "type": "string"
+    },
+    "projectlink": {
+      "type": "string"
+    }
+  }
+}
