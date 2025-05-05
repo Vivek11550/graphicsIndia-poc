@@ -22,13 +22,13 @@ const WordpressCard = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch("http://localhost:1337/api/wordpressproject-cards?populate=*");
+        const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/wordpressproject-cards?populate=*`);
         const data = await res.json();
 
         if (data?.data) {
           const formattedProjects = data.data.map((item:WordpressProjectCardTypes) => {
             const imageUrl = item?.cardImage?.formats?.thumbnail?.url
-              ? `http://localhost:1337${item.cardImage.formats.thumbnail.url}`
+              ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.cardImage.formats.thumbnail.url}`
               : "";
 
             return {
@@ -57,8 +57,8 @@ const WordpressCard = () => {
   return (
     <section className="w-full bg-white">
       <div className="container mx-auto px-12 py-12">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-4 py-5">
-          WordPress Projects
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-4 py-5">
+        WordPress Mastery: Custom & High-Performance Websites
         </h2>
 
         {/* Project Cards with Sliding Effect */}

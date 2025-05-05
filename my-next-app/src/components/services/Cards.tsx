@@ -1,63 +1,66 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import {
-  ApiResponse,
-  FormattedCard,
-  ApiCardItem,
-} from '../../../lib/types/servicepage-types'; 
+import { useState, useEffect } from "react";
+import Image from "next/image";
+
+type CardItem = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+};
 
 const Cards = () => {
-  const [cards, setCards] = useState<FormattedCard[]>([]);
+  const [cards, setCards] = useState<CardItem[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:1337/api/services-cards?populate=*')
+    fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/services-cards?populate=*`)
       .then((response) => response.json())
-      .then((data: ApiResponse) => {
-        const cardsArray: ApiCardItem[] = Array.isArray(data?.data) ? data.data : [];
+      .then((data) => {
+        const cardsArray = data?.data || [];
 
-        const formattedCards: FormattedCard[] = cardsArray.map((item) => {
-          const attributes = item.attributes || {};
-          const imageUrl = attributes.cardImage?.data?.attributes?.url;
+        const formattedCards = cardsArray.map((item: any) => {
+          const icon = item.icon;
+          const imageUrl = icon?.formats?.small?.url || icon?.url;
 
           return {
             id: item.id,
-            title: attributes.cardTitle || 'No Title',
-            description: attributes.cardDiscription || 'No Description',
+            title: item.title || "No Title",
+            description: item.description || "No Description",
             image: imageUrl
-              ? `http://localhost:1337${imageUrl}`
-              : 'https://via.placeholder.com/300',
+              ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${imageUrl}`
+              : "https://via.placeholder.com/100",
           };
         });
 
         setCards(formattedCards);
       })
-      .catch((error) => console.error('Error fetching data:', error));
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
   return (
-    <div className="container mx-auto px-[10%] bg-[white] py-8">
+    <div className="container mx-auto px-6 py-12">
       <h2 className="text-3xl font-bold text-center text-black mb-12">
         Powerful IT Solutions For Your Business Success
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="flex flex-wrap justify-center gap-10">
         {cards.length > 0 ? (
           cards.map((card) => (
             <div
               key={card.id}
-              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl hover:scale-[1.1] transition-scale duration-600 transition-shadow duration-300"
+              className="bg-white w-[280px] rounded-2xl shadow-md p-6 text-center hover:shadow-lg hover:-translate-y-1 transition duration-300"
             >
-              <img
+              <Image
                 src={card.image}
                 alt={card.title}
-                className="h-48 w-full object-cover"
+                width={48} 
+                height={48}
+                className="mx-auto mb-4 rounded-full object-cover"
               />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-gray-800">
-                  {card.title}
-                </h3>
-                <p className="text-gray-600">{card.description}</p>
-              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                {card.title}
+              </h3>
+              <p className="text-sm text-gray-600">{card.description}</p>
             </div>
           ))
         ) : (

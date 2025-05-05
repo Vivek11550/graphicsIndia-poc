@@ -57,9 +57,13 @@ const PorfolioCard = () => {
 
   return (
     <section className="w-full bg-white">
+      
       <div className="container mx-auto px-12 py-12">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-4 py-5">
-          WordPress Projects
+      <h1 className="text-3xl font-bold text-center text-gray-800  pt-5">
+      Discover Our Latest Projects
+      </h1>
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-4 py-5">
+        Dynamic Web Solutions: Cutting-Edge & Scalable Projects
         </h2>
 
         {/* Project Cards with Sliding Effect */}

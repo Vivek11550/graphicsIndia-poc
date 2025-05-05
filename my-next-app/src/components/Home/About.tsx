@@ -22,7 +22,7 @@ export default function AboutCompany() {
             ABOUT COMPANY
           </h2>
           <p className="text-gray-600 text-base sm:text-lg leading-relaxed font-poppins">
-            India Graphic Online, a leading Web and Mobile App Development Company based in Camp, Pune, offers innovative IT solutions to enhance business growth and efficiency. Our expertise includes Web Development, App Development, UI/UX & Web Design, ERP Solutions, and SEO Management. We specialize in modern platforms like MERN, MEAN, and WordPress, delivering customized digital experiences that cater to your unique needs and deliver outstanding results.
+          Graphics India Online, a leading Web and Mobile App Development Company based in Camp, Pune, offers innovative IT solutions to enhance business growth and efficiency. Our expertise includes Web Development, App Development, UI/UX & Web Design, ERP Solutions, and SEO Management. We specialize in modern platforms like MERN, MEAN, and WordPress, delivering customized digital experiences that cater to your unique needs and deliver outstanding results.
           </p>
           <a
             href="/about"
