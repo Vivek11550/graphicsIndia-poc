@@ -5,7 +5,7 @@ import services from "../../Assets/service-assets/header.png"
 const Heroservices = () => {
   return (
     <>
-     <Herocomponent imageurl={services} title="services" />
+     <Herocomponent imageurl={services} title="Services" />
     </>
   )
 }

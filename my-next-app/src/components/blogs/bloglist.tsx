@@ -1,54 +1,76 @@
+import Image from 'next/image';
 
+interface ImageFormat {
+  url: string;
+}
 
-'use client';
-import Link from 'next/link';
+interface ImageFormats {
+  medium?: ImageFormat;
+  [key: string]: ImageFormat | undefined;
+}
 
-const blogs = [
-  {
-    id: 1,
-    title: 'How to Scale Your App with Cloud Solutions',
-    excerpt: 'Discover strategies to effectively scale your app using modern cloud technologies...',
-    author: 'Vivek Kumar',
-    date: 'April 20, 2025',
-    image: '/images/cloud-scaling.jpg',
-    slug: 'scale-your-app-with-cloud',
-  },
-  {
-    id: 2,
-    title: 'The Future of AI in Business Applications',
-    excerpt: 'Learn how artificial intelligence is transforming industries and creating smarter workflows...',
-    author: 'Aisha Mehta',
-    date: 'April 22, 2025',
-    image: '/images/ai-future.jpg',
-    slug: 'future-of-ai-in-business',
-  }
-];
+interface BlogImage {
+  formats?: ImageFormats;
+  url?: string;
+}
 
+interface Blog {
+  id: number;
+  title: string;
+  slug: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  image?: BlogImage[];
+}
 
+interface BlogListProps {
+  blogs: Blog[];
+}
 
+export default function BlogList({ blogs }: BlogListProps) {
+  if (!blogs?.length) return <p>No blogs found.</p>;
 
-export default function BlogList() {
   return (
-    <div className="px-6 py-12 max-w-7xl mx-auto bg-white">
-      <h1 className="text-4xl font-bold text-center text-black mb-10">Our Latest Insights</h1>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogs.map((blog) => (
-          <div key={blog.id} className="bg-white rounded-2xl shadow-md overflow-hidden">
-            <img src={blog.image} alt={blog.title} className="w-full h-48 object-cover" />
-            <div className="p-5">
-              <h2 className="text-xl text-black font-semibold mb-2">{blog.title}</h2>
-              <p className="text-gray-600 text-sm mb-4">{blog.excerpt}</p>
-              <div className="flex justify-between text-sm text-gray-500 mb-2">
-                <span>👤 {blog.author}</span>
-                <span>📅 {blog.date}</span>
-              </div>
-              <Link href={`/blog/${blog.slug}`}>
-                <span className="text-indigo-600 hover:underline font-medium">Read More →</span>
-              </Link>
-            </div>
+    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {blogs.map((blog) => {
+        const {
+          id,
+          title,
+          slug,
+          excerpt,
+          author,
+          date,
+          image,
+        } = blog;
+
+        const imageUrl = image?.[0]?.formats?.medium?.url || image?.[0]?.url || "";
+
+        return (
+          <div key={id} className="bg-slate-50 p-4 rounded-lg shadow">
+            {imageUrl && (
+              <Image
+                src={`http://localhost:1337${imageUrl}`}
+                alt={title}
+                width={400}
+                height={200}
+                className="w-full h-48 object-cover rounded"
+              />
+            )}
+            <h2 className="text-xl font-bold mt-4 text-black">{title}</h2>
+            <p className="text-gray-600 text-sm mb-2">
+              {author} | {new Date(date).toLocaleDateString()}
+            </p>
+            <p className="text-gray-700">{excerpt}</p>
+            <a
+              href={`/blog/${slug}`}
+              className="inline-block mt-4 text-blue-500 hover:underline"
+            >
+              Read More →
+            </a>
           </div>
-        ))}
-      </div>
+        );
+      })}
     </div>
   );
 }

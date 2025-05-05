@@ -1,4 +1,6 @@
 import PorfolioCard from "@/components/Portfolio/PortfolioPage";
+import Herocomponent from "@/components/ui/herocomponent";
+import portfolioimg  from "@/Assets/portfolio-assets/PortfolioImg.png"
 
 
 export const metadata = {
@@ -10,6 +12,7 @@ export const metadata = {
 export default function Portfolio(){
     return(
         <div>
+    <Herocomponent imageurl={portfolioimg} title="Portfolio" />
        <PorfolioCard/>
         </div>
     )
