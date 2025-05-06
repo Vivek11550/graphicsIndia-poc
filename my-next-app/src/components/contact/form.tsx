@@ -142,7 +142,7 @@ const Form: React.FC = () => {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
+                  className="flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-purple-600 hover:bg-gray-200 hover:text-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
                 >
                   {loading ? "Submitting..." : "Submit"}
                   <Send className="ml-2 h-4 w-4" />
