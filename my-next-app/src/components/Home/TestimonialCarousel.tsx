@@ -15,8 +15,34 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
 
+
+
+interface TestimonialImageFormat {
+  url: string;
+}
+
+interface TestimonialImageFormats {
+  medium?: TestimonialImageFormat;
+  [key: string]: TestimonialImageFormat | undefined;
+}
+
+interface TestimonialImage {
+  url?: string;
+  formats?: TestimonialImageFormats;
+}
+
+interface Testimonial {
+  id: number;
+  name: string;
+  identity: string;
+  message: string;
+  rating: number;
+  image?: TestimonialImage[];
+}
+
+
 export default function TestimonialCarousel() {
-  const [testimonials, setTestimonials] = useState<any[]>([]);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,7 +87,7 @@ export default function TestimonialCarousel() {
         {testimonials.map((item, index) => {
           const { name, identity, message, rating, image } = item;
 
-          // Safely get the image URL (medium format preferred)
+        
           const imageUrl = image?.[0]?.formats?.medium?.url || image?.[0]?.url;
           const fullImageUrl = imageUrl
             ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${imageUrl}`

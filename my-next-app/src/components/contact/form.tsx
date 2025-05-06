@@ -42,7 +42,7 @@ const Form: React.FC = () => {
       setError(null);
 
       try {
-        const response = await fetch("http://localhost:1337/api/forms", {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/forms`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

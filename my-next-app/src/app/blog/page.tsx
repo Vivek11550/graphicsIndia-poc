@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 export default async function Blogs() {
-  const res = await fetch("http://localhost:1337/api/blogs?populate=image", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?populate=image`, {
     cache: "no-store",
   });
 

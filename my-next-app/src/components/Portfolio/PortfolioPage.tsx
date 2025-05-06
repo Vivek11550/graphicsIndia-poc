@@ -23,13 +23,13 @@ const PorfolioCard = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch("http://localhost:1337/api/portfolio-cards?populate=*");
+        const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/portfolio-cards?populate=*`);
         const data = await res.json();
 
         if (data?.data) {
           const formattedProjects = data.data.map((item:WordpressProjectCardTypes) => {
             const imageUrl = item?.cardImage?.formats?.thumbnail?.url
-              ? `http://localhost:1337${item.cardImage.formats.thumbnail.url}`
+              ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.cardImage.formats.thumbnail.url}`
               : "";
 
             return {
