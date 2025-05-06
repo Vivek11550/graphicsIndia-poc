@@ -22,18 +22,25 @@ interface Blog {
   }[];
 }
 
-// ✅ This defines the expected parameter structure for Next.js App Router
-type PageParams = {
-  params: {
-    slug: string;
-  };
-};
+// ✅ Fetch helper
+async function fetchBlogBySlug(slug: string): Promise<Blog | undefined> {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=image`,
+    { cache: "no-store" }
+  );
 
-// ✅ Generate Static Params
+  console.log("Fetching from:", `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs`);
+
+  if (!res.ok) return undefined;
+
+  const json = await res.json();
+  return json?.data?.[0] as Blog | undefined;
+}
+
+// ✅ Static Params
 export async function generateStaticParams() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs`);
   const json = await res.json();
-
   const blogs: Blog[] = json?.data || [];
 
   return blogs.map((blog) => ({
@@ -41,19 +48,17 @@ export async function generateStaticParams() {
   }));
 }
 
-// ✅ Correct typing for generateMetadata
-export async function generateMetadata(
-  { params }: PageParams
-): Promise<Metadata> {
-  const slug = params.slug;
+// ✅ Metadata with awaited `params`
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const blog = await fetchBlogBySlug(slug);
 
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=image`
-  );
-  const json = await res.json();
-  const blog: Blog | undefined = json?.data?.[0];
-
-  if (!blog) return notFound();
+  if (!blog) {
+    return {
+      title: "Blog Not Found",
+      description: "This blog post does not exist.",
+    };
+  }
 
   return {
     title: blog.title,
@@ -61,19 +66,10 @@ export async function generateMetadata(
   };
 }
 
-// ✅ Page Component with correct typing
-export default async function BlogPage({ params }: PageParams) {
-  const slug = params.slug;
-
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=image`,
-    { cache: "no-store" }
-  );
-
-  if (!res.ok) return notFound();
-
-  const json = await res.json();
-  const blog: Blog | undefined = json?.data?.[0];
+// ✅ Page component with awaited `params`
+export default async function BlogPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const blog = await fetchBlogBySlug(slug);
 
   if (!blog) return notFound();
 
