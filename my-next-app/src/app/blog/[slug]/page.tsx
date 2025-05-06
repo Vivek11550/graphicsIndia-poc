@@ -1,37 +1,57 @@
+// app/blog/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Image from "next/image";
+import { Metadata } from "next";
 
-interface BlogData {
+interface Blog {
   id: number;
-  attributes: {
-    slug: string;
-    [key: string]: unknown; // for any additional attributes
-  };
+  title: string;
+  slug: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  content: string;
+  image: {
+    id: number;
+    url: string;
+    formats?: {
+      large?: { url: string };
+    };
+  }[];
 }
 
+// ✅ This defines the expected parameter structure for Next.js App Router
+type PageParams = {
+  params: {
+    slug: string;
+  };
+};
 
-
-
-
-// ✅ Optional: Pre-generate paths for SSG
+// ✅ Generate Static Params
 export async function generateStaticParams() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs`);
-  const data = await res.json();
-  const blogs :BlogData[] = data?.data || [];
+  const json = await res.json();
+
+  const blogs: Blog[] = json?.data || [];
 
   return blogs.map((blog) => ({
-    slug: blog.attributes.slug,
+    slug: blog.slug,
   }));
 }
 
-// ✅ Metadata without accessing blog.attributes
-export async function generateMetadata({ params }: { params: { slug: string } }) {
+// ✅ Correct typing for generateMetadata
+export async function generateMetadata(
+  { params }: PageParams
+): Promise<Metadata> {
   const slug = params.slug;
-  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=image`);
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=image`
+  );
   const json = await res.json();
-  const blog = json?.data?.[0];
+  const blog: Blog | undefined = json?.data?.[0];
 
   if (!blog) return notFound();
 
@@ -41,8 +61,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   };
 }
 
-// ✅ Blog Page
-export default async function BlogPage({ params }: { params: { slug: string } }) {
+// ✅ Page Component with correct typing
+export default async function BlogPage({ params }: PageParams) {
   const slug = params.slug;
 
   const res = await fetch(
@@ -53,11 +73,10 @@ export default async function BlogPage({ params }: { params: { slug: string } })
   if (!res.ok) return notFound();
 
   const json = await res.json();
-  const blog = json?.data?.[0];
+  const blog: Blog | undefined = json?.data?.[0];
 
   if (!blog) return notFound();
 
-  // ✅ Your actual blog structure
   const { title, author, date, content, image } = blog;
 
   const imageData = image?.[0];

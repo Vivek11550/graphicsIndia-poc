@@ -38,7 +38,7 @@ const Header = () => {
           <Link href="/portfolio" className={linkClass("/portfolio")}>Portfolio</Link>
           <Link href="/services" className={linkClass("/services")}>Services</Link>
           <Link href="/blog" className={linkClass("/blog")}>Blogs</Link>
-          <Link href="/contact-us" className="bg-purple-700 text-white px-4 py-2 rounded">Contact</Link>
+          <Link href="/contact-us" className="bg-purple-700 text-white px-4 py-2 rounded  hover:bg-gray-200 hover:text-black">Contact</Link>
         </nav>
 
         {/* Mobile Menu Button */}

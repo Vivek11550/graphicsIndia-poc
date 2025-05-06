@@ -32,7 +32,7 @@ export default function AboutCompany() {
           </p>
           <a
             href="/about"
-            className="inline-block bg-purple-700 text-white px-5 py-2 mt-6 rounded hover:bg-purple-800 transition-colors"
+            className="inline-block bg-purple-700 text-white px-5 py-2 mt-6 rounded hover:bg-gray-200 hover:text-black transition-colors"
           >
             Learn More
           </a>
