@@ -17,7 +17,7 @@ interface BlogData {
 
 // ✅ Optional: Pre-generate paths for SSG
 export async function generateStaticParams() {
-  const res = await fetch("http://localhost:1337/api/blogs");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs`);
   const data = await res.json();
   const blogs :BlogData[] = data?.data || [];
 
@@ -29,7 +29,7 @@ export async function generateStaticParams() {
 // ✅ Metadata without accessing blog.attributes
 export async function generateMetadata({ params }: { params: { slug: string } }) {
   const slug = params.slug;
-  const res = await fetch(`http://localhost:1337/api/blogs?filters[slug][$eq]=${slug}&populate=image`);
+  const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=image`);
   const json = await res.json();
   const blog = json?.data?.[0];
 
@@ -46,7 +46,7 @@ export default async function BlogPage({ params }: { params: { slug: string } })
   const slug = params.slug;
 
   const res = await fetch(
-    `http://localhost:1337/api/blogs?filters[slug][$eq]=${slug}&populate=image`,
+    `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/blogs?filters[slug][$eq]=${slug}&populate=image`,
     { cache: "no-store" }
   );
 
@@ -64,7 +64,7 @@ export default async function BlogPage({ params }: { params: { slug: string } })
   const imageUrl = imageData?.formats?.large?.url || imageData?.url || "";
   const fullImageUrl = imageUrl.startsWith("http")
     ? imageUrl
-    : `http://localhost:1337${imageUrl}`;
+    : `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${imageUrl}`;
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12 bg-white text-black">

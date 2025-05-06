@@ -50,7 +50,7 @@ export default function BlogList({ blogs }: BlogListProps) {
           <div key={id} className="bg-slate-50 p-4 rounded-lg shadow">
             {imageUrl && (
               <Image
-                src={`http://localhost:1337${imageUrl}`}
+                src={`${process.env.NEXT_PUBLIC_STRAPI_API_URL}${imageUrl}`}
                 alt={title}
                 width={400}
                 height={200}

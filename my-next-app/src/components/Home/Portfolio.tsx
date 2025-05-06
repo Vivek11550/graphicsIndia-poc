@@ -10,25 +10,48 @@ interface Project {
   link: string;
 }
 
+interface ImageFormat {
+  url: string;
+}
+
+interface ImageFormats {
+  thumbnail?: ImageFormat;
+  [key: string]: ImageFormat | undefined;
+}
+
+interface CardImage {
+  url?: string;
+  formats?: ImageFormats;
+}
+
+interface APIProject {
+  id: number;
+  cardTitle: string;
+  cardDiscription: string;
+  cardImage?: CardImage;
+  projectlink?: string;
+}
+
+
 const Portfolio = () => {
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch("http://localhost:1337/api/home-porfolios?populate=*");
+        const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/home-porfolios?populate=*`);
         const data = await res.json();
 
         if (data?.data) {
-          const formattedProjects: Project[] = data.data.map((item: any) => {
+          const formattedProjects: Project[] = data.data.map((item:APIProject) => {
             const cardImage = item.cardImage;
             const thumbnailUrl = cardImage?.formats?.thumbnail?.url;
             const fullImageUrl = cardImage?.url;
 
             const imageUrl = thumbnailUrl
-              ? `http://localhost:1337${thumbnailUrl}`
+              ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${thumbnailUrl}`
               : fullImageUrl
-              ? `http://localhost:1337${fullImageUrl}`
+              ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${fullImageUrl}`
               : "";
 
             return {

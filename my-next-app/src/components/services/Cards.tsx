@@ -10,6 +10,28 @@ type CardItem = {
   image: string;
 };
 
+interface CardImageFormat {
+  url: string;
+}
+
+interface CardImageFormats {
+  small?: CardImageFormat;
+  [key: string]: CardImageFormat | undefined;
+}
+
+interface CardIcon {
+  url?: string;
+  formats?: CardImageFormats;
+}
+
+interface ServiceCard {
+  id: number;
+  title: string;
+  description: string;
+  icon?: CardIcon;
+}
+
+
 const Cards = () => {
   const [cards, setCards] = useState<CardItem[]>([]);
 
@@ -19,7 +41,7 @@ const Cards = () => {
       .then((data) => {
         const cardsArray = data?.data || [];
 
-        const formattedCards = cardsArray.map((item: any) => {
+        const formattedCards = cardsArray.map((item: ServiceCard) => {
           const icon = item.icon;
           const imageUrl = icon?.formats?.small?.url || icon?.url;
 
