@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "portfolio_cards",
+  "info": {
+    "singularName": "portfolio-card",
+    "pluralName": "portfolio-cards",
+    "displayName": "portfolioCard",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "cardImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "cardTitle": {
+      "type": "string"
+    },
+    "cardDiscription": {
+      "type": "text"
+    },
+    "projectlink": {
+      "type": "text"
+    }
+  }
+}

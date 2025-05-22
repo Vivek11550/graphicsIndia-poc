@@ -1,16 +1,16 @@
+import HeroAbout from "@/components/about/heroabout";
 
-import HeroAbout from '@/components/about-page-componet/heroabout';
+import Whoweare from "@/components/about/whoweare";
 
-import Whoweare from '@/components/about-page-componet/whoweare';
-
-export default function About (){
-
-    return(
-
-        <div>
-         <HeroAbout/>
-         <Whoweare/>
-        </div>
-
-    )
+export const metadata = {
+  title: "About Us | Graphics India Online ",
+  description: "Learn more about our mission, vision, and team.",
+};
+export default function About() {
+  return (
+    <div>
+      <HeroAbout />
+      <Whoweare />
+    </div>
+  );
 }

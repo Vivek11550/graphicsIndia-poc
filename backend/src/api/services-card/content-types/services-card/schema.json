@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services_cards",
+  "info": {
+    "singularName": "services-card",
+    "pluralName": "services-cards",
+    "displayName": "Services-card"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "order": {
+      "type": "integer"
+    }
+  }
+}

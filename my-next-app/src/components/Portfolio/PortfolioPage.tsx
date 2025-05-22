@@ -1,142 +1,138 @@
-import React from "react";
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import PortfolioImg from "../../Assets/Portfolio-assets/PortfolioImg.png";
-import Herocomponent from "../ui/herocomponent";
-//import { useRouter } from "next/navigation";
-//import Link from "next/link";
-import NikitaImage from "../../Assets/Portfolio-assets/NikitaImage.png";
-import ShredImage from "../../Assets/Portfolio-assets/ShredImage.png";
-import UrbanAxisImage from "../../Assets/Portfolio-assets/UrbanAxisImage.png";
-import GalaxyImage from "../../Assets/Portfolio-assets/GalaxyImage.png";
-import IntignusImage from "../../Assets/Portfolio-assets/IntignusImage.png";
-import Train2GainImage from "../../Assets/Portfolio-assets/Train2GainImage.png";
+import WordpressProjectCardTypes from "../../../lib/types/portfolio-types"
+import { motion, AnimatePresence } from "framer-motion";
+import WordpressCard from "./wordpressCard";
 
-const projects = [
-  {
-    id: 1,
-    title: "Nikita's Curry Corner",
-    description:
-      "Nikita's Curry Corner provides fast, responsive ordering with secure Stripe payments for an excellent user experience.",
-    image: NikitaImage,
-    //link: "http://localhost:3000/portfolio",
-  },
-  {
-    id: 2,
-    title: "Shred-n-Shape",
-    description:
-      "Shred n Shape offers tailored fitness plans, nutritional guidance, and seamless payments for optimal performance.",
-    image: ShredImage,
-    //link: "http://localhost:3000/portfolio",
-  },
-  {
-    id: 3,
-    title: "UrbanAxis",
-    description:
-      "UrbanAxis, built with Next.js, features a modern design, integrated blog, contact form, and SEO optimization.",
-    image: UrbanAxisImage,
-    //link: "http://localhost:3000/portfolio",
-  },
-  {
-    id: 4,
-    title: "Galaxy Agro Equipments ",
-    description:
-      "Sachniti provides fast, responsive WordPress solutions with excellent performance for a seamless user experience.",
-    image: GalaxyImage,
-    //link: "http://localhost:3000/portfolio",
-  },
-  {
-    id: 5,
-    title: "Intignus Biotech Pvt.Ltd",
-    description:
-      "Intignus Biotech delivers innovative WordPress solutions for women's healthcare, enhancing access, literacy, and empowerment.",
-    image: IntignusImage,
-    //link: "http://localhost:3000/portfolio",
-  },
-  {
-    id: 6,
-    title: "Train2Gain",
-    description:
-      "Train2Gain provides responsive WordPress solutions for educational resources, enhancing learning experiences and user engagement.",
-    image: Train2GainImage,
-    //link: "http://localhost:3000/portfolio",
-  },
-];
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+}
 
-const PortfolioPage = () => {
+const PorfolioCard = () => {
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const cardsPerPage = 3;
+  const totalPages = Math.ceil(projects.length / cardsPerPage);
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/portfolio-cards?populate=*`);
+        const data = await res.json();
+
+        if (data?.data) {
+          const formattedProjects = data.data.map((item:WordpressProjectCardTypes) => {
+            const imageUrl = item?.cardImage?.formats?.thumbnail?.url
+              ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.cardImage.formats.thumbnail.url}`
+              : "";
+
+            return {
+              id: item.id,
+              title: item.cardTitle,
+              description: item.cardDiscription,
+              image: imageUrl,
+              link: item.projectlink || "#",
+            };
+          });
+          setProjects(formattedProjects);
+        }
+      } catch (error) {
+        console.error("Error fetching projects:", error);
+      }
+    };
+
+    fetchProjects();
+  }, []);
+
+  const handlePageChange = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  const indexOfFirstCard = (currentPage - 1) * cardsPerPage;
+  const currentProjects = projects.slice(indexOfFirstCard, indexOfFirstCard + cardsPerPage);
+
   return (
-    <section className="w-full">
-      {/* Portfolio image section */}
-      <Herocomponent imageurl={PortfolioImg} title="Portfolio" />
-
-      {/* Portfolio Content */}
-      <div className="container mx-auto px-6 py-12 bg-white">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
-          Our Portfolio
+    <section className="w-full bg-white">
+      
+      <div className="container mx-auto px-12 py-12">
+      <h1 className="text-3xl font-bold text-center text-gray-800  pt-5">
+      Discover Our Latest Projects
+      </h1>
+        <h2 className="text-2xl font-bold text-center text-gray-800 mb-4 py-5">
+        Dynamic Web Solutions: Cutting-Edge & Scalable Projects
         </h2>
 
-         {/* Subtitle for First Section */}
-       <p className="text-lg font-bold text-center text-black mb-8">
-       Innovative Dynamic Projects
-       </p>
-
-        {/* First Row - First 3 Projects */}
-        <div className="grid grid-cols-1 md:grid-cols-3  mb-8 gap-5 place-items-center px-16">
-          {projects.slice(0, 3).map((project) => (
-            //<Link key={project.id} href={project.link} >
-              <div
-                key={project.id}
-                className="bg-white shadow-lg rounded-lg p-6 "
-              >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={400}
-                  height={250}
-                  className="rounded-lg mb-4 w-full h-[180px] object-cover"
-                />
-                <h3 className="text-xl font-semibold text-black">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 text-sm mt-2">
-                  {project.description}
-                </p>
-              </div>
-           // </Link>
-          ))}
+        {/* Project Cards with Sliding Effect */}
+        <div className="relative overflow-hidden">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentPage}
+              initial={{ x: 100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -100, opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 place-items-center"
+            >
+              {currentProjects.length > 0 ? (
+                currentProjects.map((project) => (
+                  <a
+                    key={project.id}
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block max-w-[350px] w-full bg-white shadow-md rounded-lg hover:shadow-lg transition-transform transform hover:scale-105"
+                  >
+                    <div className="rounded-t-lg overflow-hidden">
+                      {project.image ? (
+                        <Image
+                          src={project.image}
+                          alt={project.title}
+                          width={400}
+                          height={250}
+                          className="w-full h-[200px] object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-[200px] bg-gray-200 flex justify-center items-center">
+                          <p>No Image Available</p>
+                        </div>
+                      )}
+                    </div>
+                    <div className="p-4">
+                      <h3 className="text-xl font-semibold text-black">{project.title}</h3>
+                      <p className="text-gray-600 text-sm mt-2">{project.description}</p>
+                    </div>
+                  </a>
+                ))
+              ) : (
+                <p className="text-center text-gray-600">Loading projects...</p>
+              )}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-        <p className="text-lg text-center font-bold text-black mb-8">
-        WordPress Projects
-        </p>
-
-        {/* Second Row - Next 3 Projects */}
-        <div className="grid grid-cols-1 md:grid-cols-3  mb-8 gap-5 place-items-center px-16">
-          {projects.slice(3, 6).map((project) => (
-           // <Link key={project.id} href={project.link.src} passHref>
-              <div
-                key={project.id}
-                className="bg-white shadow-lg rounded-lg p-6 "
-              >
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  width={400}
-                  height={250}
-                  className="rounded-lg mb-4 w-full h-[180px] object-cover"
-                />
-                <h3 className="text-xl font-semibold  text-black">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 text-sm mt-2">
-                  {project.description}
-                </p>
-              </div>
-            //</Link>
+        {/* Dot Pagination */}
+        <div className="flex justify-center items-center mt-8 space-x-3">
+          {[...Array(totalPages)].map((_, index) => (
+            <button
+              key={index}
+              onClick={() => handlePageChange(index + 1)}
+              className={`w-2 h-2 rounded-full transition-transform duration-300 focus:outline-none ${
+                currentPage === index + 1
+                  ? "bg-purple-500 scale-150"
+                  : "bg-gray-300 hover:bg-gray-400 scale-100"
+              }`}
+              aria-label={`Go to page ${index + 1}`}
+            ></button>
           ))}
         </div>
       </div>
+      <WordpressCard/>
     </section>
   );
 };
 
-export default PortfolioPage;
+export default PorfolioCard;

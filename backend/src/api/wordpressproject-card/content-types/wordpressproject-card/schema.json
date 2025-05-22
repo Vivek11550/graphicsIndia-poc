@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wordpressproject_cards",
+  "info": {
+    "singularName": "wordpressproject-card",
+    "pluralName": "wordpressproject-cards",
+    "displayName": "wordpressprojectCard"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "cardImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "cardTitle": {
+      "type": "string"
+    },
+    "cardDiscription": {
+      "type": "text"
+    },
+    "projectlink": {
+      "type": "text"
+    }
+  }
+}

@@ -1,95 +1,151 @@
 "use client";
 
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, EffectCoverflow, Autoplay, Navigation } from "swiper/modules";
+import {
+  Pagination,
+  EffectCoverflow,
+  Autoplay,
+  Navigation,
+} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 import "swiper/css/autoplay";
 import "swiper/css/navigation";
-import clientimg from "../../Assets/Home-assets/clientimg.png";
 
-const testimonials = [
-  {
-    name: "Vaibhav Bokare",
-    location: "Nanded, India",
-    message:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit Accusan Accusantium sapiente laboriosam fugit ea perspiciatis... ",
-    image: clientimg,
-  },
-  {
-    name: "John Doe",
-    location: "Mumbai, India",
-    message: "Eveniet, iste accusamus, molestiae ratione...",
-    image: clientimg,
-  },
-  {
-    name: "Jane Smith",
-    location: "Delhi, India",
-    message: "Accusantium sapiente laboriosam fugit ea perspiciatis...",
-    image: clientimg,
-  },
-  {
-    name: "Ravi Kumar",
-    location: "Bangalore, India",
-    message: "Voluptates, tenetur, quia atque quibusdam...",
-    image: clientimg,
-  },
-];
+
+
+interface TestimonialImageFormat {
+  url: string;
+}
+
+interface TestimonialImageFormats {
+  medium?: TestimonialImageFormat;
+  [key: string]: TestimonialImageFormat | undefined;
+}
+
+interface TestimonialImage {
+  url?: string;
+  formats?: TestimonialImageFormats;
+}
+
+interface Testimonial {
+  id: number;
+  name: string;
+  identity: string;
+  message: string;
+  rating: number;
+  image?: TestimonialImage[];
+}
+
 
 export default function TestimonialCarousel() {
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/testimonials`);
+      const json = await res.json();
+      setTestimonials(json.data);
+    };
+    fetchData();
+  }, []);
+
   return (
-    <div className="w-full max-w-5xl mx-auto py-10 px-4 bg-white relative">
-      <h2 className="text-2xl md:text-3xl font-bold text-center text-black mb-8">
-        Clients Success Stories
+    <div className="w-full max-w-7xl mx-auto py-16 px-6 bg-white relative">
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+        Client Success Stories
       </h2>
 
       <Swiper
         modules={[Pagination, EffectCoverflow, Autoplay, Navigation]}
         effect="coverflow"
-        grabCursor={true}
-        centeredSlides={true}
-        slidesPerView={1}
-        loop={true}
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
+        grabCursor
+        centeredSlides
+        loop
+        autoplay={{ delay: 4000, disableOnInteraction: false }}
+        navigation={{
+          nextEl: ".custom-next-arrow",
+          prevEl: ".custom-prev-arrow",
         }}
-        navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
+        pagination={{ clickable: true }}
         breakpoints={{
-          640: { slidesPerView: 1, spaceBetween: 10 },
-          1024: { slidesPerView: 3, spaceBetween: 20 },
+          640: { slidesPerView: 1, spaceBetween: 20 },
+          1024: { slidesPerView: 3, spaceBetween: 30 },
         }}
         coverflowEffect={{
-          rotate: 50,
+          rotate: 30,
           stretch: 0,
           depth: 100,
           modifier: 1,
           slideShadows: true,
         }}
-        pagination={{ clickable: true }}
         className="testimonial-swiper"
       >
-        {testimonials.map((testimonial, index) => (
-          <SwiperSlide key={index}>
-            <div className="bg-gray-800 flex gap-4 text-white rounded-2xl p-6 shadow-xl transition-all duration-300">
-              <div className="flex flex-col items-start mb-4">
-                <img src={testimonial.image.src} alt={testimonial.name} className="w-22" />
-                <h3 className="font-bold text-lg mt-3">{testimonial.name}</h3>
-                <p className="text-sm text-gray-300">{testimonial.location}</p>
+        {testimonials.map((item, index) => {
+          const { name, identity, message, rating, image } = item;
+
+        
+          const imageUrl = image?.[0]?.formats?.medium?.url || image?.[0]?.url;
+          const fullImageUrl = imageUrl
+            ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${imageUrl}`
+            : null;
+
+          return (
+            <SwiperSlide key={index}>
+              <div className="bg-gray-800 text-white rounded-2xl p-6 shadow-xl min-h-80 flex flex-col gap-4 transition-all duration-300 hover:scale-105">
+                <div className="flex items-center gap-4">
+                  {fullImageUrl && (
+                    <Image
+                      src={fullImageUrl}
+                      alt={name}
+                      width={64}
+                      height={64}
+                      className="rounded-full border border-gray-600"
+                    />
+                  )}
+                  <div>
+                    <h3 className="text-lg font-semibold">{name}</h3>
+                    <p className="text-sm text-gray-300">{identity}</p>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  {rating && (
+                    <p className="text-yellow-400 text-sm mb-2">
+                      {"⭐".repeat(rating)}
+                    </p>
+                  )}
+                  <p className="text-sm text-gray-300 leading-relaxed">
+                    {message}
+                  </p>
+                </div>
               </div>
-              <div>
-                <p className="py-2">⭐⭐⭐⭐⭐</p>
-                <p className="text-sm text-gray-300">{testimonial.message}</p>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
 
-      {/* Navigation buttons */}
-      <div className="swiper-button-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-lg cursor-pointer z-10"></div>
-      <div className="swiper-button-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-800 text-white p-3 rounded-full shadow-lg cursor-pointer z-10"></div>
+      {/* Navigation Arrows */}
+      <div className="custom-prev-arrow absolute -left-4 md:-left-6 top-1/2 transform -translate-y-1/2 z-20">
+        <button className="bg-white hover:bg-gray-100 text-gray-800 p-3 rounded-full shadow-md border border-gray-300 transition duration-300">
+          ←
+        </button>
+      </div>
+      <div className="custom-next-arrow absolute -right-4 md:-right-6 top-1/2 transform -translate-y-1/2 z-20">
+        <button className="bg-white hover:bg-gray-100 text-gray-800 p-3 rounded-full shadow-md border border-gray-300 transition duration-300">
+          →
+        </button>
+      </div>
+
+      {/* Hide default arrows */}
+      <style jsx global>{`
+        .swiper-button-next,
+        .swiper-button-prev {
+          display: none !important;
+        }
+      `}</style>
     </div>
   );
 }
