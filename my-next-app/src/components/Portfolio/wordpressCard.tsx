@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import WordpressProjectCardTypes from "../../../lib/types/portfolio-types"
+import WordpressProjectCardTypes from "../../types/portfolio-types";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface Project {
@@ -22,23 +22,27 @@ const WordpressCard = () => {
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/wordpressproject-cards?populate=*`);
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/wordpressproject-cards?populate=*`
+        );
         const data = await res.json();
 
         if (data?.data) {
-          const formattedProjects = data.data.map((item:WordpressProjectCardTypes) => {
-            const imageUrl = item?.cardImage?.formats?.thumbnail?.url
-              ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.cardImage.formats.thumbnail.url}`
-              : "";
+          const formattedProjects = data.data.map(
+            (item: WordpressProjectCardTypes) => {
+              const imageUrl = item?.cardImage?.formats?.thumbnail?.url
+                ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${item.cardImage.formats.thumbnail.url}`
+                : "";
 
-            return {
-              id: item.id,
-              title: item.cardTitle,
-              description: item.cardDiscription,
-              image: imageUrl,
-              link: item.projectlink || "#",
-            };
-          });
+              return {
+                id: item.id,
+                title: item.cardTitle,
+                description: item.cardDiscription,
+                image: imageUrl,
+                link: item.projectlink || "#",
+              };
+            }
+          );
           setProjects(formattedProjects);
         }
       } catch (error) {
@@ -52,13 +56,16 @@ const WordpressCard = () => {
   const handlePageChange = (pageNumber: number) => setCurrentPage(pageNumber);
 
   const indexOfFirstCard = (currentPage - 1) * cardsPerPage;
-  const currentProjects = projects.slice(indexOfFirstCard, indexOfFirstCard + cardsPerPage);
+  const currentProjects = projects.slice(
+    indexOfFirstCard,
+    indexOfFirstCard + cardsPerPage
+  );
 
   return (
     <section className="w-full bg-white">
       <div className="container mx-auto px-12 py-12">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-4 py-5">
-        WordPress Mastery: Custom & High-Performance Websites
+          WordPress Mastery: Custom & High-Performance Websites
         </h2>
 
         {/* Project Cards with Sliding Effect */}
@@ -97,8 +104,12 @@ const WordpressCard = () => {
                       )}
                     </div>
                     <div className="p-4">
-                      <h3 className="text-xl font-semibold text-black">{project.title}</h3>
-                      <p className="text-gray-600 text-sm mt-2">{project.description}</p>
+                      <h3 className="text-xl font-semibold text-black">
+                        {project.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm mt-2">
+                        {project.description}
+                      </p>
                     </div>
                   </a>
                 ))

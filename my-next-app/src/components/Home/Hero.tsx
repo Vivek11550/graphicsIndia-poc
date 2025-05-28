@@ -20,9 +20,10 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Content */}
-      <div className="relative z-10 text-white text-center px-4 sm:px-6 lg:px-8 max-w-[90%] sm:max-w-[70%] lg:max-w-[50%]">
+      <div className="relative z-10 text-white text-ellipsis px-4 sm:px-6 lg:px-8 max-w-[90%] sm:max-w-[70%] lg:max-w-[50%]">
         <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-4 leading-tight">
-          Scalable Web and Mobile App Development Services
+          Scalable Web and Mobile App 
+          Development Services 
         </h1>
         <p className="text-xs sm:text-sm md:text-base lg:text-lg mb-6">
           We deliver innovative web and mobile apps, ERP software, and custom UI/UX solutions to elevate your business in the digital age.

@@ -86,7 +86,7 @@ const Cards = () => {
             </div>
           ))
         ) : (
-          <p className="text-center text-gray-600">Loading...</p>
+          <p className="text-center text-gray-600"></p>
         )}
       </div>
     </div>
@@ -94,3 +94,4 @@ const Cards = () => {
 };
 
 export default Cards;
+

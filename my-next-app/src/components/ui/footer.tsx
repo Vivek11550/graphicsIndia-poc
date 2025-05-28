@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from "../../Assets/logo.png";
+import logo from "../../Assets/logo.svg";
 import {
   FaFacebookF,
   FaTwitter,
@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
 
         {/* Navigation Links */}
-        <nav className="flex flex-col items-start gap-2 text-sm mt-1">
+        <nav className="flex flex-col items-start gap-2 text-sm mt-1 ml-24">
           <h3 className="text-base font-semibold mb-2">Quick Links</h3>
           <Link href="/" className="text-gray-300 hover:text-white">Home</Link>
           <Link href="/about" className="text-gray-300 hover:text-white">About</Link>

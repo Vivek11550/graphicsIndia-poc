@@ -1,14 +1,17 @@
 import React from "react";
 import Image from "next/image";
 import aboutimg from "../../Assets/about-assets/aboutimg.png";
-import Aboutcardimg from "../../Assets/Home-assets/Howwedo-assets/homeabout.png";
+import Aboutcardimg from "../../Assets/about-assets/Rectangle 32.png";
 import Herocomponent from "../ui/herocomponent";
 
 const HeroAbout = () => {
   return (
     <div>
-      <Herocomponent imageurl={aboutimg} title="About Comapany" />
-      {/* director section ---------- */}
+      <Herocomponent imageurl={aboutimg} title="Building Smart Digital Solutions"
+      subtitle="We turn ideas into powerful web and mobile apps with expertise in development,ERP Systems,and UI/Ux we help businesses grow in digital world"
+      />
+        
+      
       <section className="flex justify-center items-center bg-white w-full py-10 px-4 sm:px-6">
         <div className="bg-white shadow-lg rounded-lg p-6 sm:p-8 flex flex-col items-center max-w-6xl w-full">
           {/* Heading at top */}
@@ -16,14 +19,18 @@ const HeroAbout = () => {
             About Graphics India Online
           </h2>
 
-          <div className="flex flex-col md:flex-row items-center w-full gap-8">
+          <div className="flex flex-col md:flex-row  items-stretch w-full gap-8">
             {/* Left: Image */}
-            <div className="w-full md:w-1/2">
+            <div className=" md:w-1/2 w-full h-full ">
+            <div className="w-full h-full">
               <Image
                 src={Aboutcardimg}
                 alt="About Company"
-                className="w-full h-auto rounded-md"
+                 width={800}
+                 height={900}
+                className="  w-full  object-cover rounded-none mt-6"
               />
+              </div>
             </div>
 
             {/* Right: Company Details */}
@@ -38,11 +45,11 @@ const HeroAbout = () => {
                 Our team stays updated with the latest industry trends and technologies to deliver future-ready, high-performance products. At Graphics India Online, we blend creativity, technical expertise, and a client-first approach in every project.
 
                 <br /><br />
-                Whether you&#39;re a startup or an established enterprise, we work closely with you to bring your vision to life through exceptional digital experiences. Partner with Graphics India Online — your trusted experts in Web and Mobile App Development — to build strong digital foundations, elevate your brand, and achieve lasting success in today’s competitive market.
+                {/* Whether you&#39;re a startup or an established enterprise, we work closely with you to bring your vision to life through exceptional digital experiences. Partner with Graphics India Online — your trusted experts in Web and Mobile App Development — to build strong digital foundations, elevate your brand, and achieve lasting success in today’s competitive market. */}
               </p>
               <a
                 href="/contact-us"
-                className="inline-block bg-purple-700 text-white px-5 py-2 mt-6 rounded hover:bg-gray-200 hover:text-black transition-colors"
+                className="inline-block bg-purple-700 text-white px-5 py-2 mt-2 rounded hover:bg-gray-200 hover:text-black transition-colors"
               >
                 Contact-us
               </a>

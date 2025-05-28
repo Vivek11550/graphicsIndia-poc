@@ -6,7 +6,6 @@ interface FormData {
   name: string;
   email: string;
   location: string;
-  budget: string;
   subject: string;
   message: string;
 }
@@ -15,7 +14,6 @@ const initialFormData: FormData = {
   name: "",
   email: "",
   location: "",
-  budget: "",
   subject: "",
   message: "",
 };
@@ -42,13 +40,16 @@ const Form: React.FC = () => {
       setError(null);
 
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/forms`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ data: formData }),
-        });
+        const response = await fetch(
+          `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/forms`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ data: formData }),
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to submit form");
@@ -56,7 +57,7 @@ const Form: React.FC = () => {
 
         setSuccess("Your message has been sent successfully!");
         setFormData(initialFormData);
-      } catch  {
+      } catch {
         setError("Something went wrong. Please try again.");
       } finally {
         setLoading(false);
@@ -69,7 +70,6 @@ const Form: React.FC = () => {
     { id: "name", label: "Name", type: "text", required: true },
     { id: "email", label: "Email", type: "email", required: true },
     { id: "location", label: "Location", type: "text", required: false },
-    { id: "budget", label: "Budget", type: "text", required: true },
     { id: "subject", label: "Subject", type: "text", required: true },
   ];
 
@@ -85,7 +85,7 @@ const Form: React.FC = () => {
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7566.098133653227!2d73.902134!3d18.5266847!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1c1c0b70591%3A0x98e45a8c6fc2ce0f!2sGraphics%20India%20Online!5e0!3m2!1sen!2sin!4v1738571226171!5m2!1sen!2sin"
               width="100%"
-              height="450"
+              height="300"
               loading="lazy"
               className="rounded-lg shadow-md"
             ></iframe>
@@ -101,7 +101,8 @@ const Form: React.FC = () => {
                       htmlFor={id}
                       className="block text-sm font-medium text-gray-700"
                     >
-                      {label} {required && <span className="text-blue-600">*</span>}
+                      {label}{" "}
+                      {required && <span className="text-blue-600">*</span>}
                     </label>
                     <input
                       type={type}
@@ -110,7 +111,7 @@ const Form: React.FC = () => {
                       required={required}
                       value={formData[id as keyof FormData]}
                       onChange={handleChange}
-                      className="block w-full border-b-2 border-blue-500 focus:outline-none focus:border-purple-600"
+                      className="block w-full border-b-2 border-blue-500 focus:outline-none focus:border-purple-600 text-black"
                     />
                   </div>
                 ))}
@@ -128,7 +129,8 @@ const Form: React.FC = () => {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    className="mt-1 block w-full border-b-2 border-blue-500 focus:outline-none focus:border-purple-600 p-2"
+                    className="mt-1 block w-full border-b-2 border-blue-500 focus:outline-none focus:border-purple-600 p-3 text-black "
+                    rows ={1}
                   />
                 </div>
               </div>

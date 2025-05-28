@@ -1,18 +1,18 @@
 import Image from "next/image";
-import aboutImage from "../../Assets/Home-assets/Howwedo-assets/homeabout.png";
+import aboutImage from "../../Assets/about-assets/Rectangle 32.png";
 
 export default function AboutCompany() {
   return (
     <section className="flex justify-center px-4 py-10 bg-white sm:px-6 lg:px-8">
-      <div className="bg-white shadow-lg rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-center max-w-6xl w-full gap-8">
+      <div className="bg-white shadow-lg  p-6 sm:p-8 flex flex-col md:flex-row items-center max-w-6xl w-full gap-8">
         {/* Left: Image */}
-        <div className="w-full md:w-1/2">
+        <div className="w-full md:w-1/2  ">
           <Image
             src={aboutImage}
             alt="About Company"
-            width={500}
-            height={400}
-            className="w-full h-auto object-contain"
+            width={400}
+            height={300}
+            className=" object-contain rounded-none ml-12 mb-4"
           />
         </div>
 
@@ -21,7 +21,7 @@ export default function AboutCompany() {
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-4">
             ABOUT COMPANY
           </h2>
-          <p className="text-gray-600 text-base sm:text-lg leading-relaxed font-poppins">
+          <p className="text-gray-600 text-base sm:text-lg leading-relaxed  font-poppins ">
             Graphics India Online, a leading Web and Mobile App Development
             Company based in Camp, Pune, offers innovative IT solutions to
             enhance business growth and efficiency. Our expertise includes Web
