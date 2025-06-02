@@ -14,13 +14,13 @@ const HeroAbout = () => {
       
       <section className="flex justify-center items-center bg-white w-full py-10 px-4 sm:px-6">
         <div className="bg-white shadow-lg rounded-lg p-6 sm:p-8 flex flex-col items-center max-w-6xl w-full">
-          {/* Heading at top */}
+        
           <h2 className="text-2xl sm:text-3xl text-gray-800 font-bold text-center mb-8">
             About Graphics India Online
           </h2>
 
-          <div className="flex flex-col md:flex-row  items-stretch w-full gap-8">
-            {/* Left: Image */}
+          <div className="flex flex-col md:flex-row  items-stretch w-full gap-8 ">
+            
             <div className=" md:w-1/2 w-full h-full ">
             <div className="w-full h-full">
               <Image
@@ -28,12 +28,12 @@ const HeroAbout = () => {
                 alt="About Company"
                  width={800}
                  height={900}
-                className="  w-full  object-cover rounded-none mt-6"
+                className="  w-full  object-cover rounded-none mt-1"
               />
               </div>
             </div>
 
-            {/* Right: Company Details */}
+           
             <div className="w-full md:w-1/2 text-center md:text-left">
               <p className="text-gray-600 text-base sm:text-lg leading-relaxed">
                 Graphics India Online is a trusted Web and Mobile App Development company based in Camp, Pune. We specialize in delivering innovative IT solutions that enhance efficiency, boost online presence, and unlock new opportunities for businesses across industries. Our core services include Web and Mobile App Development, UI/UX and Web Design, ERP Solutions, and SEO Management.
@@ -58,7 +58,7 @@ const HeroAbout = () => {
         </div>
       </section>
 
-      {/* Our Mission */}
+      
       <div className="w-full bg-[#132238] text-white py-16 px-4 sm:px-6 md:px-10 lg:px-20 text-center">
         <h2
           className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6"

@@ -1,6 +1,8 @@
 import Heroservices from "../../components/services/heroservices"
 import Cards  from "../../components/services/Cards"
 import Whychoseus  from "../../components/services/whychoseus"
+import BusinessService from "@/components/services/business-service";
+import DigitalGrowth from "@/components/services/digitalgrowth";
 
 
 export const metadata = {
@@ -15,7 +17,10 @@ export default function Services(){
         <div className="bg-white ">
         <Heroservices/>
         <Cards />
+        <BusinessService/>
+        <DigitalGrowth/>
         <Whychoseus/>
+        
         </div>
     )
 }

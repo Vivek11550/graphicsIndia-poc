@@ -16,10 +16,16 @@ const Herocomponent = ({imageurl,title,subtitle}:{imageurl:StaticImageData,title
         </div>
         <div className="absolute inset-0 bg-black bg-opacity-10"></div>
         <div className="relative z-10 text-white text-ellipsis max-w-lg">
-          <h1 className="text-3xl lg:text-4xl font-bold mb-4"> {title} </h1>
-            <p className="text-sm md:text-lg leading-relaxed">
-            {subtitle}
+          <h1 className="typewriter text-3xl lg:text-4xl font-bold mb-4"> {title} </h1>
+            <p className="text-sm md:text-lg leading-relaxed"> 
+            {subtitle} 
           </p>
+           <a
+          href="/contact-us"
+          className="btn btn-pulse bg-purple-700 text-white hover:text-black  px-4 py-2 mt-6  sm:px-6 sm:py-3 rounded-lg hover:bg-gray-200 transition border border-black text-sm sm:text-base inline-block"
+        >
+          Contact Us
+        </a>
           
         </div>
       </section>
@@ -27,3 +33,4 @@ const Herocomponent = ({imageurl,title,subtitle}:{imageurl:StaticImageData,title
   )
 }
 export default Herocomponent
+

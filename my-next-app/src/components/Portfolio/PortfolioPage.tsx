@@ -104,7 +104,7 @@ const PorfolioCard = () => {
                       ) : (
                         <div className="w-full h-[200px] bg-gray-200 flex justify-center items-center">
                           <p>No Image Available</p>
-                        </div>
+                        </div> 
                       )}
                     </div>
                     <div className="p-4">

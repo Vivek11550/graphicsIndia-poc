@@ -27,7 +27,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center py-4 px-6">
         {/* Logo and Title */}
         <div className="flex items-center space-x-4">
-          <Image src={logo} alt="Logo" width={37} height={36} className="rounded" />
+          <Image src={logo} alt="Logo" width={37} height={36} className="rounded logo-animate" />
           <h1 className="text-lg font-bold">Graphics India Online</h1>
         </div>
 
